@@ -1,0 +1,24 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.Rhistory
+
+# Claude Code
+.claude/
+
+# Archives
+*.zip
+
+# Internal/dev files
+arya-core/
+pre-deployment/
+Flora SEO/
+*.docx
+*.pdf
+MENU-SETUP-GUIDE.md
+menu-sheets/

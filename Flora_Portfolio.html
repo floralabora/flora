@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flora et Labora — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+@page { size: A4; margin: 0; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bone: #F7F2EA;
+  --cream: #FEFCF8;
+  --blush: #E8D5C4;
+  --blush-deep: #D4B8A0;
+  --sage: #7A9B6D;
+  --sage-deep: #5A7C4E;
+  --sage-muted: #A8BC96;
+  --dark-green: #1C2E1C;
+  --forest: #2D4A2D;
+  --charcoal: #2D2820;
+  --text: #3A352E;
+  --muted: #8A7E72;
+  --terracotta: #C4714A;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #fff;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+  margin: 0 auto;
+}
+
+/* ═══ PAGE VARIANTS ═══ */
+.page-dark { background: var(--dark-green); color: var(--cream); }
+.page-light { background: var(--bone); color: var(--text); }
+.page-cream { background: var(--cream); color: var(--text); }
+.page-sage { background: var(--sage-muted); color: var(--dark-green); }
+
+.page-inner {
+  padding: 48px 56px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ═══ TYPOGRAPHY ═══ */
+.font-display { font-family: 'Cormorant Garamond', serif; }
+.font-body { font-family: 'DM Sans', sans-serif; }
+
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700; line-height: 1.05;
+}
+
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700; line-height: 1.08;
+}
+
+.accent { color: var(--terracotta); font-style: italic; font-weight: 500; }
+.accent-sage { color: var(--sage); font-style: italic; font-weight: 500; }
+
+.section-num {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--sage); margin-bottom: 20px;
+  display: block;
+}
+.page-dark .section-num { color: var(--sage-muted); }
+
+.body-text {
+  font-size: 12px; line-height: 1.85; color: var(--muted);
+  max-width: 400px;
+}
+.page-dark .body-text { color: rgba(247,242,234,0.55); }
+
+/* ═══ FOOTER ═══ */
+.page-footer {
+  position: absolute; bottom: 28px; left: 56px; right: 56px;
+  display: flex; justify-content: space-between;
+  font-size: 8px; font-weight: 500; letter-spacing: 0.16em;
+  text-transform: uppercase; opacity: 0.35;
+}
+.page-dark .page-footer { color: var(--cream); }
+
+/* ═══ STATS BAR ═══ */
+.stats-bar {
+  display: flex; gap: 2px; margin-top: auto; border-radius: 12px; overflow: hidden;
+}
+.stat-item {
+  flex: 1; text-align: center; padding: 16px 12px;
+  background: var(--dark-green); color: var(--cream);
+}
+.page-dark .stat-item { background: rgba(247,242,234,0.06); }
+.stat-num {
+  font-family: 'Cormorant Garamond', serif; font-weight: 600;
+  font-size: 28px; line-height: 1;
+}
+.stat-label {
+  font-size: 8px; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; margin-top: 6px; opacity: 0.6;
+}
+
+/* ═══ FEATURE CARDS ═══ */
+.feature-row {
+  display: flex; gap: 12px; margin-top: 24px;
+}
+.feature-card {
+  flex: 1; padding: 20px; border-radius: 12px;
+  background: rgba(122,155,109,0.08); border: 1px solid rgba(122,155,109,0.12);
+}
+.page-dark .feature-card {
+  background: rgba(247,242,234,0.04); border-color: rgba(247,242,234,0.08);
+}
+.feature-card-title {
+  font-size: 13px; font-weight: 600; color: var(--charcoal); margin-bottom: 6px;
+}
+.page-dark .feature-card-title { color: var(--cream); }
+.feature-card-text {
+  font-size: 10px; line-height: 1.7; color: var(--muted);
+}
+.page-dark .feature-card-text { color: rgba(247,242,234,0.45); }
+
+/* ═══ SCREENSHOT PLACEHOLDER ═══ */
+.screenshot {
+  border-radius: 14px; overflow: hidden; background: var(--dark-green);
+  flex: 1; min-height: 200px; position: relative;
+}
+.screenshot img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.screenshot-label {
+  position: absolute; bottom: 12px; left: 16px;
+  font-size: 9px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: rgba(247,242,234,0.7);
+  background: rgba(28,46,28,0.7); padding: 4px 10px; border-radius: 6px;
+  backdrop-filter: blur(8px);
+}
+
+/* ═══ GRID LAYOUTS ═══ */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+.grid-2-1 { display: grid; grid-template-columns: 2fr 1fr; gap: 14px; }
+
+.img-card {
+  border-radius: 12px; overflow: hidden; height: 160px;
+}
+.img-card img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ═══ PROJECT DETAIL CARDS ═══ */
+.detail-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+}
+.detail-card {
+  padding: 20px; border-radius: 12px;
+  background: rgba(247,242,234,0.05);
+  border: 1px solid rgba(247,242,234,0.08);
+}
+.detail-card-title {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--sage-muted); margin-bottom: 10px;
+}
+.detail-card-text {
+  font-size: 11px; line-height: 1.7; color: rgba(247,242,234,0.55);
+}
+
+/* ═══ DIVIDER ═══ */
+.divider {
+  width: 40px; height: 2px; background: var(--sage); margin: 16px 0;
+  border-radius: 2px;
+}
+.page-dark .divider { background: var(--sage-muted); }
+
+/* ═══ PRINT ═══ */
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  body { background: none !important; margin: 0; }
+  .page {
+    page-break-after: always;
+    box-shadow: none !important;
+    margin: 0;
+    border-radius: 0;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .page-dark { background: var(--dark-green) !important; color: var(--cream) !important; }
+  .page-light { background: var(--bone) !important; }
+  .page-cream { background: var(--cream) !important; }
+  .page-sage { background: var(--sage-muted) !important; }
+  .stat-item { background: var(--dark-green) !important; color: var(--cream) !important; }
+  .page-dark .stat-item { background: rgba(247,242,234,0.06) !important; }
+  .feature-card { background: rgba(122,155,109,0.08) !important; }
+  .page-dark .feature-card { background: rgba(247,242,234,0.04) !important; }
+  .detail-card { background: rgba(247,242,234,0.04) !important; }
+  .divider { background: var(--sage) !important; }
+  .screenshot { background: var(--dark-green) !important; }
+  .screenshot-label { background: rgba(28,46,28,0.7) !important; }
+}
+
+/* ═══ SCREEN ═══ */
+@media screen {
+  .page {
+    box-shadow: 0 4px 40px rgba(0,0,0,0.08);
+    margin: 40px auto;
+    border-radius: 4px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 1 — COVER
+     ═══════════════════════════════════════════════ -->
+<div class="page page-dark">
+  <div class="page-inner" style="align-items: center; justify-content: center; text-align: center;">
+    <img src="Photos%20and%20Videos/logo-flora.png" alt="Flora et Labora" style="height: 80px; filter: brightness(0) invert(1); margin-bottom: 28px;">
+    <h1 style="font-size: 52px; color: var(--cream);">Flora et Labora</h1>
+    <p style="font-size: 11px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--sage-muted); margin-top: 12px;">
+      PIANTE &middot; CAFFE &middot; APERITIVO &middot; COWORKING &middot; WORKSHOP
+    </p>
+    <div class="divider" style="margin: 20px auto;"></div>
+    <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: rgba(247,242,234,0.6); max-width: 360px; line-height: 1.6;">
+      Premium digital experience for Milan's botanical cafe, coworking space, and creative workshop studio on the Naviglio Pavese.
+    </p>
+    <p style="font-size: 9px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,242,234,0.25); margin-top: auto;">
+      WEB DESIGN &middot; VIDEO EXPERIENCE &middot; BRAND IDENTITY &middot; 2025
+    </p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 2 — HERO & VIDEO-FIRST LANDING
+     ═══════════════════════════════════════════════ -->
+<div class="page page-dark">
+  <div class="page-inner">
+    <span class="section-num">01 — VIDEO-FIRST LANDING</span>
+    <h2 style="font-size: 36px; color: var(--cream);">Cinematic hero with<br><span class="accent">split-screen video panels.</span></h2>
+    <p class="body-text" style="margin-top: 16px;">
+      Full-viewport split-screen hero: two autoplay looping videos flanking a 3D-animated logo with mouse-tracking rotation, glow pulse animation, and parallax scroll. Staggered text entrance creates a cinematic arrival experience.
+    </p>
+
+    <div class="grid-2" style="margin-top: 24px; flex: 1;">
+      <div class="screenshot">
+        <img src="Photos%20and%20Videos/Hero/HeroCandidate.jpg" alt="Hero section">
+        <span class="screenshot-label">Hero — Desktop</span>
+      </div>
+      <div class="screenshot">
+        <img src="Photos%20and%20Videos/Interior/Interior1.jpg" alt="Interior">
+        <span class="screenshot-label">Hero — Split Panel</span>
+      </div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-card">
+        <div class="feature-card-title">Autoplay Video</div>
+        <div class="feature-card-text">Muted, looping HTML5 video panels with scale(1.05) parallax and overlay gradients.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-title">3D Logo Animation</div>
+        <div class="feature-card-text">Mouse-tracking perspective rotation with glow pulse. CSS keyframes + vanilla JS.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-title">Parallax Scroll</div>
+        <div class="feature-card-text">RAF-throttled scroll handler shifts video panels with translate3d for smooth depth.</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer"><span>FLORA ET LABORA — PORTFOLIO</span><span>02 / 10</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 3 — MEDIA CONTENT
+     ═══════════════════════════════════════════════ -->
+<div class="page page-dark">
+  <div class="page-inner">
+    <span class="section-num">02 — VIDEO & MEDIA LIBRARY</span>
+    <h2 style="font-size: 36px; color: var(--cream);"><span class="accent">5 brand videos</span> across<br>the experience.</h2>
+    <p class="body-text" style="margin-top: 16px;">
+      Professional video content woven throughout the site — from hero panels to workshop showcases and drink-making moments. Optimized for web with autoplay, loop, mobile poster fallbacks, and lazy loading.
+    </p>
+
+    <div class="grid-3" style="margin-top: 24px;">
+      <div class="img-card"><img src="Photos%20and%20Videos/Workshops/Workshop3.jpg" alt="Workshop video"></div>
+      <div class="img-card"><img src="Photos%20and%20Videos/Workshops/Workshop4.jpg" alt="Workshop video 2"></div>
+      <div class="img-card"><img src="Photos%20and%20Videos/Products/Drink2.jpg" alt="Drink video"></div>
+    </div>
+
+    <div class="grid-2" style="margin-top: 14px;">
+      <div class="img-card"><img src="Photos%20and%20Videos/Workshops/Workshop1.jpg" alt="Workshop main"></div>
+      <div class="img-card"><img src="Photos%20and%20Videos/Products/Foodmain.jpg" alt="Food"></div>
+    </div>
+
+    <div class="stats-bar" style="margin-top: auto;">
+      <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">Videos Used</div></div>
+      <div class="stat-item"><div class="stat-num">2</div><div class="stat-label">Hero Panels</div></div>
+      <div class="stat-item"><div class="stat-num">0ms</div><div class="stat-label">Autoplay Delay</div></div>
+      <div class="stat-item"><div class="stat-num">&infin;</div><div class="stat-label">Loop Playback</div></div>
+    </div>
+  </div>
+  <div class="page-footer"><span>FLORA ET LABORA — PORTFOLIO</span><span>03 / 10</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 4 — BRAND STATEMENT
+     ═══════════════════════════════════════════════ -->
+<div class="page page-light">
+  <div class="page-inner">
+    <span class="section-num">03 — BRAND STATEMENT</span>
+    <h2 style="font-size: 36px;">A green corner for<br><span class="accent">coffee, coworking & aperitivo.</span></h2>
+    <p class="body-text" style="margin-top: 16px; color: var(--text);">
+      A premium digital experience designed for Flora et Labora — Milan's botanical cafe, aperitivo bar, co-working space, and creative workshop studio on the Naviglio Pavese. The website captures the lush, warm, community-driven essence of the space.
+    </p>
+
+    <div class="grid-2-1" style="margin-top: 24px; flex: 1;">
+      <div class="screenshot" style="background: var(--cream);">
+        <img src="Photos%20and%20Videos/Interior/Interior2.jpg" alt="Interior">
+        <span class="screenshot-label">Brand Intro Section</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div class="img-card" style="flex: 1;"><img src="Photos%20and%20Videos/Brand/Outsidelook.jpg" alt="Exterior"></div>
+        <div class="img-card" style="flex: 1;"><img src="Photos%20and%20Videos/Interior/Interior5.jpg" alt="Interior detail"></div>
+      </div>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Vegan Menu</div></div>
+      <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">Menu Sections</div></div>
+      <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">Workshops</div></div>
+      <div class="stat-item"><div class="stat-num">7/7</div><div class="stat-label">Days Open</div></div>
+    </div>
+  </div>
+  <div class="page-footer"><span>FLORA ET LABORA — PORTFOLIO</span><span>04 / 10</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 5 — PRODUCT SHOWCASE & MENU SYSTEM
+     ═══════════════════════════════════════════════ -->
+<div class="page page-cream">
+  <div class="page-inner">
+    <span class="section-num">04 — DYNAMIC MENU SYSTEM</span>
+    <h2 style="font-size: 36px;">A full editable<br><span class="accent">digital menu.</span></h2>
+    <p class="body-text" style="margin-top: 16px; color: var(--text);">
+      Four-tab menu system (Caffetteria, Pranzo, Aperitivo, Drinks) powered by Google Sheets. The owner can edit items, prices, and mark products as unavailable daily — changes appear on the website within 2 minutes. No developer needed.
+    </p>
+
+    <div class="feature-row" style="margin-top: 20px;">
+      <div class="feature-card" style="background: rgba(90,124,78,0.08); border-color: rgba(90,124,78,0.15);">
+        <div class="feature-card-title">Google Sheets CMS</div>
+        <div class="feature-card-text">Menu data lives in a Google Sheet. Owner edits a spreadsheet — the site updates automatically.</div>
+      </div>
+      <div class="feature-card" style="background: rgba(196,113,74,0.06); border-color: rgba(196,113,74,0.12);">
+        <div class="feature-card-title">Daily Availability</div>
+        <div class="feature-card-text">Put "X" in the Available column to hide an item. Remove it to bring it back. Instant.</div>
+      </div>
+      <div class="feature-card" style="background: rgba(90,124,78,0.08); border-color: rgba(90,124,78,0.15);">
+        <div class="feature-card-title">Static Fallback</div>
+        <div class="feature-card-text">If the Sheet is unreachable, the site shows a hardcoded fallback menu. Zero downtime.</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 20px; padding: 24px; background: var(--bone); border-radius: 14px; border: 1px solid rgba(122,155,109,0.12);">
+      <p style="font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage-deep); margin-bottom: 12px;">HOW THE OWNER EDITS THE MENU</p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px;">
+        <div>
+          <p style="font-size: 24px; font-family: 'Cormorant Garamond', serif; font-weight: 700; color: var(--charcoal);">1</p>
+          <p style="font-size: 11px; line-height: 1.6; color: var(--muted); margin-top: 4px;">Open Google Sheet on phone or computer</p>
+        </div>
+        <div>
+          <p style="font-size: 24px; font-family: 'Cormorant Garamond', serif; font-weight: 700; color: var(--charcoal);">2</p>
+          <p style="font-size: 11px; line-height: 1.6; color: var(--muted); margin-top: 4px;">Edit item name, price, or add new rows</p>
+        </div>
+        <div>
+          <p style="font-size: 24px; font-family: 'Cormorant Garamond', serif; font-weight: 700; color: var(--charcoal);">3</p>
+          <p style="font-size: 11px; line-height: 1.6; color: var(--muted); margin-top: 4px;">Type "X" in Available column to hide today</p>
+        </div>
+        <div>
+          <p style="font-size: 24px; font-family: 'Cormorant Garamond', serif; font-weight: 700; color: var(--charcoal);">4</p>
+          <p style="font-size: 11px; line-height: 1.6; color: var(--muted); margin-top: 4px;">Website updates automatically in ~2 minutes</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top: 20px; flex: 1;">
+      <div class="screenshot" style="background: var(--bone);">
+        <img src="Photos%20and%20Videos/Products/foodfinal.jpeg" alt="Food">
+        <span class="screenshot-label">Menu — Editorial Layout</span>
+      </div>
+      <div class="screenshot" style="background: var(--bone);">
+        <img src="Photos%20and%20Videos/Products/Drink4.jpg" alt="Drinks">
+        <span class="screenshot-label">Drinks Section</span>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer"><span>FLORA ET LABORA — PORTFOLIO</span><span>05 / 10</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 6 — PLANTS & COWORKING
+     ═══════════════════════════════════════════════ -->
+<div class="page page-light">
+  <div class="page-inner">
+    <span class="section-num">05 — PLANTS & COWORKING</span>
+    <h2 style="font-size: 36px;">Two worlds,<br><span class="accent">one green space.</span></h2>
+    <p class="body-text" style="margin-top: 16px; color: var(--text);">
+      Dedicated sections for the plant shop (with "coming soon online" messaging and newsletter CTA) and the coworking space (with transparent pricing cards, availability info, and booking CTAs). Both designed to convert visitors into regulars.
+    </p>
+
+    <div class="grid-2" style="margin-top: 24px; flex: 1;">
+      <div>
+        <div class="img-card" style="height: 200px;"><img src="Photos%20and%20Videos/Plants/Plants5.jpg" alt="Plants"></div>
+        <div style="margin-top: 16px; padding: 16px; background: var(--cream); border-radius: 10px; border: 1px solid rgba(122,155,109,0.1);">
+          <p style="font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sage-deep); margin-bottom: 8px;">PLANT SHOP</p>
+          <p style="font-size: 11px; line-height: 1.7; color: var(--muted);">Full-bleed hero with gradient overlay, 7-image plant grid with hover zoom, newsletter integration for online shop launch.</p>
+        </div>
+      </div>
+      <div>
+        <div class="img-card" style="height: 200px;"><img src="Photos%20and%20Videos/Interior/Coworkingmain.jpg" alt="Coworking"></div>
+        <div style="margin-top: 16px; padding: 16px; background: var(--cream); border-radius: 10px; border: 1px solid rgba(122,155,109,0.1);">
+          <p style="font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sage-deep); margin-bottom: 8px;">COWORKING</p>
+          <p style="font-size: 11px; line-height: 1.7; color: var(--muted);">6-tier pricing grid, editorial photo strip, clear policies (no calls, group bookings), discount highlights. Converts browsers to bookers.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat-item"><div class="stat-num">7</div><div class="stat-label">Plant Photos</div></div>
+      <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">Price Tiers</div></div>
+      <div class="stat-item"><div class="stat-num">2.50</div><div class="stat-label">EUR / Hour</div></div>
+      <div class="stat-item"><div class="stat-num">1</div><div class="stat-label">Newsletter CTA</div></div>
+    </div>
+  </div>
+  <div class="page-footer"><span>FLORA ET LABORA — PORTFOLIO</span><span>06 / 10</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 7 — WORKSHOPS
+     ═══════════════════════════════════════════════ -->
+<div class="page page-dark">
+  <div class="page-inner">
+    <span class="section-num">06 — WORKSHOPS & CREATIVE LABS</span>
+    <h2 style="font-size: 36px; color: var(--cream);">Create something<br><span class="accent">with your hands.</span></h2>
+    <p class="body-text" style="margin-top: 16px;">
+      Three workshop cards in a 3:4 aspect-ratio grid — each with full-bleed background photography, gradient overlay, pricing, partner credits, and CTAs. Below: a two-video row showcasing workshop atmospheres. Designed to make people book instantly.
+    </p>
+
+    <div class="grid-3" style="margin-top: 24px; flex: 1;">
+      <div style="border-radius: 14px; overflow: hidden; position: relative;">
+        <img src="Photos%20and%20Videos/Workshops/Workshop1.jpg" alt="Clay" style="width: 100%; height: 280px; object-fit: cover;">
+        <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 16px; background: linear-gradient(to top, rgba(28,46,28,0.85), transparent);">
+          <p style="font-size: 9px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blush);">CREATIVITY</p>
+          <p style="font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--cream);">Modellazione Argilla</p>
+          <p style="font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--cream); margin-top: 4px;">50&euro;</p>
+        </div>
+      </div>
+      <div style="border-radius: 14px; overflow: hidden; position: relative;">
+        <img src="Photos%20and%20Videos/Workshops/Workshop2.jpg" alt="Ceramics" style="width: 100%; height: 280px; object-fit: cover;">
+        <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 16px; background: linear-gradient(to top, rgba(28,46,28,0.85), transparent);">
+          <p style="font-size: 9px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blush);">CRAFT</p>
+          <p style="font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--cream);">Decorazione Ceramica</p>
+          <p style="font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--cream); margin-top: 4px;">60&euro;</p>
+        </div>
+      </div>
+      <div style="border-radius: 14px; overflow: hidden; position: relative;">
+        <img src="Photos%20and%20Videos/Workshops/Workshop5.jpg" alt="T-shirt" style="width: 100%; height: 280px; object-fit: cover;">
+        <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 16px; background: linear-gradient(to top, rgba(28,46,28,0.85), transparent);">
+          <p style="font-size: 9px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blush);">EXPRESSION</p>
+          <p style="font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--cream);">Make a T-sh*t</p>
+          <p style="font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--cream); margin-top: 4px;">60&euro;</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer"><span>FLORA ET LABORA — PORTFOLIO</span><span>07 / 10</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 8 — GALLERY & ATMOSPHERE
+     ═══════════════════════════════════════════════ -->
+<div class="page page-light">
+  <div class="page-inner">
+    <span class="section-num">07 — ATMOSPHERE & GALLERY</span>
+    <h2 style="font-size: 36px;">The space<br><span class="accent">tells the story.</span></h2>
+    <p class="body-text" style="margin-top: 16px; color: var(--text);">
+      Editorial mosaic grid with asymmetric layouts (2fr/1fr rows), hover brightness + scale effects, and staggered scroll-reveal animations. Seven curated images across three rows. The Instagram section features a 4-image grid with heart-overlay hover effects.
+    </p>
+
+    <div class="grid-2-1" style="margin-top: 24px;">
+      <div class="img-card" style="height: 180px;"><img src="Photos%20and%20Videos/Interior/Interior1.jpg" alt="Interior"></div>
+      <div class="img-card" style="height: 180px;"><img src="Photos%20and%20Videos/Plants/Plants6.jpg" alt="Plants"></div>
+    </div>
+    <div class="grid-3" style="margin-top: 14px;">
+      <div class="img-card" style="height: 150px;"><img src="Photos%20and%20Videos/Interior/Interior4.jpg" alt="Detail"></div>
+      <div class="img-card" style="height: 150px;"><img src="Photos%20and%20Videos/Brand/Brand3.jpg" alt="Brand"></div>
+      <div class="img-card" style="height: 150px;"><img src="Photos%20and%20Videos/Interior/Interior6.jpg" alt="Atmosphere"></div>
+    </div>
+    <div class="grid-2" style="margin-top: 14px; flex: 1;">
+      <div class="img-card" style="height: auto; flex: 1;"><img src="Photos%20and%20Videos/Brand/outside%20sunny.jpg" alt="Outside"></div>
+      <div class="img-card" style="height: auto; flex: 1;"><img src="Photos%20and%20Videos/Brand/Brand1.jpg" alt="Instagram"></div>
+    </div>
+  </div>
+  <div class="page-footer"><span>FLORA ET LABORA — PORTFOLIO</span><span>08 / 10</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 9 — FEATURES & TECH
+     ═══════════════════════════════════════════════ -->
+<div class="page page-dark">
+  <div class="page-inner">
+    <span class="section-num">08 — UI / UX & TECHNICAL FEATURES</span>
+    <h2 style="font-size: 36px; color: var(--cream);">Premium interactions,<br><span class="accent">zero libraries.</span></h2>
+    <p class="body-text" style="margin-top: 16px;">
+      The entire site is built with pure HTML5, CSS3, and vanilla JavaScript. No React, no frameworks, no heavy dependencies. Custom cursor, 3D effects, parallax, scroll animations — all hand-crafted for maximum performance and zero bloat.
+    </p>
+
+    <div class="detail-grid" style="margin-top: 24px;">
+      <div class="detail-card">
+        <div class="detail-card-title">Custom Cursor</div>
+        <div class="detail-card-text">Dot + ring with lerp follow, enlarges on interactive elements. mix-blend-mode: exclusion. Desktop only via media query.</div>
+      </div>
+      <div class="detail-card">
+        <div class="detail-card-title">Scroll Animations</div>
+        <div class="detail-card-text">IntersectionObserver-based reveal system. 4 variants: fade-up, left, right, scale. 7 stagger delays. One-shot with unobserve.</div>
+      </div>
+      <div class="detail-card">
+        <div class="detail-card-title">Frosted Glass Nav</div>
+        <div class="detail-card-text">Transparent on load, transitions to backdrop-filter: blur(24px) with saturate(1.4) on scroll >80px. 0.5s smooth easing.</div>
+      </div>
+      <div class="detail-card">
+        <div class="detail-card-title">Language Toggle</div>
+        <div class="detail-card-text">Full IT/EN bilingual system via data-lang attributes. Single toggle button swaps all content instantly. CSS-driven visibility.</div>
+      </div>
+      <div class="detail-card">
+        <div class="detail-card-title">Reservation Modal</div>
+        <div class="detail-card-text">Overlay modal with Coworking/Workshop choice cards. CSS scale + translateY entrance. Closes on backdrop click or Escape.</div>
+      </div>
+      <div class="detail-card">
+        <div class="detail-card-title">Mobile-First</div>
+        <div class="detail-card-text">3 breakpoints (1024/768/480px). Full-screen mobile nav overlay with staggered link animations. All sections reflow cleanly.</div>
+      </div>
+      <div class="detail-card">
+        <div class="detail-card-title">SEO Baseline</div>
+        <div class="detail-card-text">JSON-LD LocalBusiness, Open Graph meta, semantic HTML5, Italian alt text, FAQ section for AI search signals.</div>
+      </div>
+      <div class="detail-card">
+        <div class="detail-card-title">Performance</div>
+        <div class="detail-card-text">will-change + translateZ(0) GPU compositing. Lazy loading images. RAF-throttled scroll. prefers-reduced-motion support.</div>
+      </div>
+    </div>
+
+    <div style="margin-top: auto; padding: 20px; background: rgba(247,242,234,0.04); border-radius: 12px; border: 1px solid rgba(247,242,234,0.08);">
+      <p style="font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage-muted); margin-bottom: 8px;">TECH STACK</p>
+      <p style="font-size: 12px; color: rgba(247,242,234,0.55); line-height: 1.7;">HTML5 &middot; CSS3 &middot; Vanilla JavaScript &middot; Google Fonts (Cormorant Garamond + DM Sans) &middot; Font Awesome 6 &middot; Google Sheets API (Menu CMS) &middot; Google Maps Embed &middot; Single index.html File &middot; GitHub + Vercel Deployment Ready</p>
+    </div>
+  </div>
+  <div class="page-footer"><span>FLORA ET LABORA — PORTFOLIO</span><span>09 / 10</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 10 — PROJECT SUMMARY
+     ═══════════════════════════════════════════════ -->
+<div class="page page-dark">
+  <div class="page-inner">
+    <div style="text-align: center; margin-bottom: 28px;">
+      <img src="Photos%20and%20Videos/logo-flora.png" alt="Flora et Labora" style="height: 56px; filter: brightness(0) invert(1); margin: 0 auto 14px;">
+      <h2 style="font-size: 32px; color: var(--cream);">Flora et Labora</h2>
+      <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: var(--sage-muted); margin-top: 6px;">Piante &middot; Caffe &middot; Aperitivo &middot; Coworking &middot; Milano</p>
+    </div>
+    <div class="divider" style="margin: 0 auto 24px;"></div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;">
+      <div style="padding: 16px; background: rgba(247,242,234,0.04); border-radius: 10px; border: 1px solid rgba(247,242,234,0.06);">
+        <p style="font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage-muted); margin-bottom: 6px;">PROJECT</p>
+        <p style="font-size: 11px; color: rgba(247,242,234,0.6); line-height: 1.65;">Premium Website Design, Development & Digital Presence for a botanical cafe, coworking space, and creative workshop studio.</p>
+      </div>
+      <div style="padding: 16px; background: rgba(247,242,234,0.04); border-radius: 10px; border: 1px solid rgba(247,242,234,0.06);">
+        <p style="font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage-muted); margin-bottom: 6px;">SCOPE</p>
+        <p style="font-size: 11px; color: rgba(247,242,234,0.6); line-height: 1.65;">Brand Website, Video-First Hero, Editable Menu System, Mobile Design, Bilingual IT/EN, SEO Baseline, Contact Forms, Newsletter, Maps Integration</p>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;">
+      <div style="padding: 16px; background: rgba(247,242,234,0.04); border-radius: 10px; border: 1px solid rgba(247,242,234,0.06);">
+        <p style="font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage-muted); margin-bottom: 6px;">FEATURES</p>
+        <p style="font-size: 11px; color: rgba(247,242,234,0.6); line-height: 1.65;">Cinematic Video Hero, Custom Cursor, 3D Logo, Parallax, Google Sheets Menu CMS, Scroll Animations, Reservation Modal, FAQ, Instagram Section</p>
+      </div>
+      <div style="padding: 16px; background: rgba(247,242,234,0.04); border-radius: 10px; border: 1px solid rgba(247,242,234,0.06);">
+        <p style="font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage-muted); margin-bottom: 6px;">SEO & AI SEARCH</p>
+        <p style="font-size: 11px; color: rgba(247,242,234,0.6); line-height: 1.65;">Baseline included: JSON-LD, Open Graph, meta tags, semantic HTML, FAQ for AI signals. Full optimization as Phase 2 after client approval.</p>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 16px;">
+      <div style="padding: 16px; background: rgba(247,242,234,0.04); border-radius: 10px; border: 1px solid rgba(247,242,234,0.06);">
+        <p style="font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage-muted); margin-bottom: 6px;">DELIVERY</p>
+        <p style="font-size: 11px; color: rgba(247,242,234,0.6); line-height: 1.65;">Demo: 2-3 business days<br>Final: 5-10 business days<br>Feedback revision included</p>
+      </div>
+      <div style="padding: 16px; background: rgba(247,242,234,0.04); border-radius: 10px; border: 1px solid rgba(247,242,234,0.06);">
+        <p style="font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage-muted); margin-bottom: 6px;">SUPPORT</p>
+        <p style="font-size: 11px; color: rgba(247,242,234,0.6); line-height: 1.65;">3 months minor edits<br>Post-launch adjustments<br>Owner account & handover</p>
+      </div>
+      <div style="padding: 16px; background: rgba(247,242,234,0.04); border-radius: 10px; border: 1px solid rgba(247,242,234,0.06);">
+        <p style="font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage-muted); margin-bottom: 6px;">NEXT STEPS</p>
+        <p style="font-size: 11px; color: rgba(247,242,234,0.6); line-height: 1.65;">SEO & AI search optimization<br>Photo/video updates<br>UI enhancements & edits</p>
+      </div>
+    </div>
+
+    <div style="margin-top: auto; text-align: center;">
+      <div class="divider" style="margin: 0 auto 16px;"></div>
+      <p style="font-size: 9px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,242,234,0.25);">
+        CONFIDENTIAL &middot; PREPARED FOR CLIENT REFERENCE &middot; 2025
+      </p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

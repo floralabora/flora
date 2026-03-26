@@ -1,0 +1,1757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Make Me Joi | Coffee & Juice · İstanbul</title>
+  <meta name="description" content="Make Me Joi · Istanbul's premium coffee and juice brand. Freshly squeezed juice, smoothies, coffee and healthy food at our Bahçeşehir, Yeşilköy, Arenapark, Yenibosna, Göcek and Alsancak locations.">
+  <meta name="keywords" content="coffee shop Istanbul, juice bar Istanbul, kahve İstanbul, smoothie İstanbul, Bahçeşehir kafe, Yeşilköy kahve, healthy bowls Istanbul, Göcek cafe, Alsancak coffee, Make Me Joi">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://makemejoi.com">
+  <meta property="og:title" content="Make Me Joi | Coffee & Juice · İstanbul">
+  <meta property="og:description" content="Fresh juice, specialty coffee & healthy food across Turkey.">
+  <meta property="og:image" content="https://makemejoi.com/food/food%204.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://makemejoi.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Preload store images for fast rendering -->
+  <link rel="preload" as="image" href="store%20bahcesehir/storeA2.jpg">
+  <link rel="preload" as="image" href="store%20bahcesehir/storeA1.jpg">
+  <link rel="preload" as="image" href="store%20bahcesehir/storeA3.jpg">
+  <link rel="preload" as="image" href="store%20bahcesehir/storeA4.jpg">
+  <link rel="preload" as="image" href="store%20bahcesehir/storeA5.jpg">
+  <link rel="preload" as="image" href="store%20bahcesehir/storeA6.jpg">
+  <link rel="preload" as="image" href="store%20bahcesehir/storeA7.jpg">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --pink:        #F2A8B8;
+      --pink-deep:   #E8819A;
+      --pink-hot:    #D4637E;
+      --pink-pale:   #FBE8EE;
+      --pink-blush:  #F9D5DF;
+      --bone:        #F7F2EA;
+      --bone-deep:   #EDE5D5;
+      --cream:       #FEFCF8;
+      --dark:        #1A1210;
+      --charcoal:    #2D2520;
+      --text:        #3A2E28;
+      --muted:       #8A7E76;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'Plus Jakarta Sans', system-ui, sans-serif;
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bone);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    button { border: none; cursor: pointer; font-family: inherit; background: none; }
+
+    /* ===== SMOOTH PAGE LOAD ===== */
+    body { opacity: 0; animation: pageIn 0.6s ease forwards 0.1s; }
+    @keyframes pageIn { to { opacity: 1; } }
+
+    /* ===== CUSTOM CURSOR ===== */
+    #cursor-dot, #cursor-ring { display: none; }
+    @media (hover: hover) and (pointer: fine) {
+      #cursor-dot {
+        position: fixed; width: 8px; height: 8px; border-radius: 50%;
+        background: var(--pink-hot); pointer-events: none; z-index: 9999;
+        transform: translate(-50%, -50%); mix-blend-mode: exclusion;
+      }
+      #cursor-ring {
+        position: fixed; width: 40px; height: 40px; border-radius: 50%;
+        border: 1.5px solid rgba(232,129,154,0.6); pointer-events: none;
+        z-index: 9998; transform: translate(-50%, -50%);
+        transition: width 0.25s var(--ease-smooth), height 0.25s var(--ease-smooth),
+                    border-color 0.25s ease;
+      }
+      #cursor-dot, #cursor-ring { display: block; }
+      a:hover ~ #cursor-ring, button:hover ~ #cursor-ring {
+        width: 56px; height: 56px; border-color: var(--pink);
+      }
+    }
+
+    /* ===== NAVIGATION ===== */
+    .nav {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+      padding: 0 56px; height: 76px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: all 0.5s var(--ease-smooth);
+      background: transparent;
+      border-bottom: 1px solid transparent;
+    }
+    .nav.scrolled {
+      background: rgba(254, 252, 248, 0.95);
+      backdrop-filter: blur(24px) saturate(1.4); -webkit-backdrop-filter: blur(24px) saturate(1.4);
+      border-bottom: 1px solid rgba(232, 129, 154, 0.1);
+      box-shadow: 0 4px 30px rgba(26,18,16,0.04);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 14px; }
+    .nav-logo img {
+      width: 44px; height: 44px; border-radius: 50%; object-fit: cover;
+      box-shadow: 0 2px 12px rgba(232,129,154,0.2);
+    }
+    .nav-logo span {
+      font-family: var(--font-display); font-size: 20px; font-weight: 600;
+      color: var(--cream); transition: color 0.5s ease;
+      letter-spacing: 0.01em;
+    }
+    .nav.scrolled .nav-logo span { color: var(--charcoal); }
+    .nav-links { display: flex; gap: 40px; list-style: none; }
+    .nav-links a {
+      font-family: var(--font-body); font-size: 11px; font-weight: 600;
+      letter-spacing: 0.16em;
+      color: rgba(247,242,234,0.8); transition: color 0.3s ease;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+      background: var(--pink); transition: width 0.3s var(--ease-smooth);
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover { color: var(--pink); }
+    .nav.scrolled .nav-links a { color: var(--charcoal); }
+    .nav.scrolled .nav-links a:hover { color: var(--pink-deep); }
+    .nav-ig {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 10px 26px; border-radius: 100px;
+      border: 1.5px solid rgba(247,242,234,0.4);
+      color: rgba(247,242,234,0.9); transition: all 0.35s ease;
+    }
+    .nav-ig:hover {
+      background: var(--pink); border-color: var(--pink);
+      color: var(--dark); transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(242,168,184,0.3);
+    }
+    .nav.scrolled .nav-ig { border-color: var(--pink-deep); color: var(--pink-deep); }
+    .nav.scrolled .nav-ig:hover {
+      background: var(--pink); color: var(--dark); border-color: var(--pink);
+      box-shadow: 0 4px 20px rgba(242,168,184,0.3);
+    }
+    .nav-hamburger {
+      display: none; flex-direction: column; gap: 6px; width: 28px;
+      cursor: pointer; z-index: 200;
+    }
+    .nav-hamburger span {
+      display: block; height: 2px; background: var(--cream);
+      transition: all 0.4s var(--ease-smooth); border-radius: 2px;
+      width: 100%;
+    }
+    .nav-hamburger span:nth-child(2) { width: 70%; }
+    .nav.scrolled .nav-hamburger span { background: var(--charcoal); }
+    .nav-hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(6px,6px); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(6px,-6px); }
+
+    .mobile-overlay {
+      position: fixed; inset: 0; z-index: 150;
+      background: var(--cream);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.5s var(--ease-smooth);
+    }
+    .mobile-overlay.open { opacity: 1; pointer-events: all; }
+    .mobile-overlay-close {
+      position: absolute; top: 24px; right: 28px;
+      font-size: 32px; color: var(--charcoal); cursor: pointer;
+      background: none; border: none; font-weight: 300;
+      transition: transform 0.3s ease;
+    }
+    .mobile-overlay-close:hover { transform: rotate(90deg); }
+    .mobile-overlay a {
+      font-family: var(--font-display); font-style: italic; font-weight: 500;
+      font-size: clamp(32px, 7vw, 52px); color: var(--charcoal);
+      margin: 10px 0; opacity: 0; transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s var(--ease-smooth), color 0.3s ease;
+    }
+    .mobile-overlay.open a { opacity: 1; transform: translateY(0); }
+    .mobile-overlay a:hover { color: var(--pink-deep); }
+    .mobile-overlay.open a:nth-child(1) { transition-delay: 0.08s; }
+    .mobile-overlay.open a:nth-child(2) { transition-delay: 0.14s; }
+    .mobile-overlay.open a:nth-child(3) { transition-delay: 0.2s; }
+    .mobile-overlay.open a:nth-child(4) { transition-delay: 0.26s; }
+    .mobile-overlay.open a:nth-child(5) { transition-delay: 0.32s; }
+    .mobile-overlay .mobile-ig {
+      margin-top: 48px; font-family: var(--font-body);
+      font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--pink-deep);
+      opacity: 0; transform: translateY(10px);
+      transition: opacity 0.5s ease 0.4s, transform 0.5s ease 0.4s;
+    }
+    .mobile-overlay.open .mobile-ig { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      .nav { padding: 0 24px; height: 68px; }
+      .nav-links, .nav-ig { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative; width: 100%; height: 100dvh; overflow: hidden;
+      display: flex; background: var(--dark);
+    }
+    .hero-panel {
+      position: relative; height: 100%; overflow: hidden;
+    }
+    .hero-panel-video { flex: 1; }
+    .hero-panel-video video {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; transform: scale(1.05);
+    }
+    .hero-panel-center {
+      flex: 1.2; display: flex; align-items: center; justify-content: center;
+      position: relative; z-index: 2;
+      border-left: 1px solid rgba(242,168,184,0.15);
+      border-right: 1px solid rgba(242,168,184,0.15);
+    }
+    .hero-panel-center::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center,
+        rgba(26,18,16,0.7) 0%,
+        rgba(26,18,16,0.88) 60%,
+        rgba(26,18,16,0.95) 100%
+      );
+    }
+
+    /* 3D Logo in center panel */
+    .hero-logo-3d {
+      position: relative; z-index: 3;
+      display: flex; flex-direction: column; align-items: center;
+      perspective: 1200px;
+    }
+    .hero-logo-img-wrap {
+      width: clamp(140px, 16vw, 200px);
+      height: clamp(140px, 16vw, 200px);
+      border-radius: 50%;
+      overflow: hidden;
+      animation: logoFloat 6s ease-in-out infinite, logo3DEntry 1.2s var(--ease-out-expo) forwards;
+      box-shadow:
+        0 0 60px rgba(242,168,184,0.25),
+        0 0 120px rgba(242,168,184,0.1),
+        0 20px 60px rgba(0,0,0,0.3);
+      transform-style: preserve-3d;
+      opacity: 0;
+    }
+    .hero-logo-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    @keyframes logo3DEntry {
+      0% { opacity: 0; transform: rotateY(-30deg) rotateX(15deg) scale(0.7) translateY(40px); }
+      100% { opacity: 1; transform: rotateY(0deg) rotateX(0deg) scale(1) translateY(0); }
+    }
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0) rotateY(0deg); }
+      25% { transform: translateY(-8px) rotateY(3deg); }
+      50% { transform: translateY(-4px) rotateY(0deg); }
+      75% { transform: translateY(-10px) rotateY(-3deg); }
+    }
+    .hero-logo-glow {
+      position: absolute; width: 300px; height: 300px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(242,168,184,0.15) 0%, transparent 70%);
+      animation: glowPulse 4s ease-in-out infinite;
+      pointer-events: none; z-index: -1;
+    }
+    @keyframes glowPulse {
+      0%, 100% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.3); opacity: 1; }
+    }
+
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background: linear-gradient(
+        to bottom,
+        rgba(26,18,16,0.15) 0%,
+        rgba(26,18,16,0.35) 50%,
+        rgba(26,18,16,0.7) 100%
+      );
+    }
+    .hero-content {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 4;
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; padding: 0 24px 100px;
+    }
+    .hero-label {
+      font-family: var(--font-body); font-size: 11px; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: rgba(247,242,234,0.5);
+      opacity: 0; animation: heroFadeUp 0.8s var(--ease-smooth) forwards 0.6s;
+    }
+    .hero-title {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: clamp(52px, 8vw, 100px); line-height: 0.95;
+      color: var(--cream); margin-top: 16px;
+    }
+    .hero-title-line1 {
+      opacity: 0; animation: heroFadeUp 0.9s var(--ease-smooth) forwards 0.8s;
+      display: block;
+    }
+    .hero-title-line2 {
+      color: var(--pink); font-style: italic;
+      opacity: 0; animation: heroFadeUp 0.9s var(--ease-smooth) forwards 0.95s;
+      display: block;
+    }
+    .hero-sub {
+      font-family: var(--font-body); font-size: 13px; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(247,242,234,0.45); margin-top: 28px;
+      opacity: 0; animation: heroFadeUp 0.8s var(--ease-smooth) forwards 1.15s;
+    }
+    .hero-ctas {
+      display: flex; gap: 16px; margin-top: 36px;
+      opacity: 0; animation: heroFadeUp 0.8s var(--ease-smooth) forwards 1.35s;
+    }
+    .btn-primary {
+      font-family: var(--font-body); font-size: 12px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 16px 36px; border-radius: 100px;
+      background: var(--pink); color: var(--dark);
+      transition: all 0.4s var(--ease-smooth);
+      box-shadow: 0 4px 24px rgba(242,168,184,0.25);
+    }
+    .btn-primary:hover {
+      background: var(--pink-deep); transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(242,168,184,0.4);
+    }
+    .btn-ghost {
+      font-family: var(--font-body); font-size: 12px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 16px 36px; border-radius: 100px;
+      border: 1.5px solid rgba(247,242,234,0.25); color: rgba(247,242,234,0.8);
+      transition: all 0.4s var(--ease-smooth);
+    }
+    .btn-ghost:hover {
+      border-color: var(--pink); color: var(--pink);
+      box-shadow: 0 4px 24px rgba(242,168,184,0.15);
+      transform: translateY(-2px);
+    }
+    .hero-scroll {
+      position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+      z-index: 4; display: flex; flex-direction: column; align-items: center; gap: 8px;
+      opacity: 0; animation: heroFadeUp 0.7s ease forwards 1.8s;
+    }
+    .hero-scroll-line {
+      width: 1px; height: 36px; background: rgba(247,242,234,0.25);
+      animation: scrollPulse 2.5s ease-in-out infinite;
+    }
+    .hero-scroll span {
+      font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase;
+      color: rgba(247,242,234,0.3); font-weight: 500;
+    }
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scrollPulse {
+      0%, 100% { transform: scaleY(1); opacity: 0.4; }
+      50%      { transform: scaleY(1.5); opacity: 1; }
+    }
+    @media (max-width: 768px) {
+      .hero-panel-video:first-child { display: none; }
+      .hero-panel-center { flex: 1; border: none; }
+      .hero-panel-video:last-child {
+        position: absolute; inset: 0; z-index: 0;
+      }
+      .hero-panel-center::before {
+        background: radial-gradient(ellipse at center,
+          rgba(26,18,16,0.6) 0%,
+          rgba(26,18,16,0.75) 100%
+        );
+      }
+      .hero-ctas { flex-direction: column; align-items: center; }
+      .hero-content { padding-bottom: 80px; }
+    }
+
+    /* ===== MARQUEE ===== */
+    .marquee-wrap {
+      background: var(--pink); padding: 18px 0;
+      border-top: 1px solid var(--pink-deep);
+      border-bottom: 1px solid var(--pink-deep);
+      overflow: hidden;
+    }
+    .marquee-track {
+      display: flex; width: max-content;
+      animation: marquee 30s linear infinite;
+      gap: 0; white-space: nowrap;
+    }
+    .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+    .marquee-item {
+      font-family: var(--font-display); font-style: italic; font-weight: 500;
+      font-size: 22px; color: var(--dark); padding: 0 20px;
+    }
+    .marquee-dot {
+      opacity: 0.4; padding: 0 8px; font-size: 18px; color: var(--dark);
+      display: flex; align-items: center;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ===== SECTION SYSTEM ===== */
+    .section-header { text-align: center; margin-bottom: 64px; }
+    .section-label {
+      font-family: var(--font-body); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase; color: var(--pink-deep);
+      margin-bottom: 18px; display: block;
+    }
+    .section-headline {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: clamp(36px, 5vw, 68px); color: var(--charcoal); line-height: 1.1;
+    }
+    .section-headline .accent { color: var(--pink-deep); }
+    .section-headline i { font-style: italic; font-weight: 500; }
+
+    /* ===== BRAND STATEMENT ===== */
+    .brand { background: var(--cream); padding: 140px 56px; }
+    .brand-inner {
+      max-width: 1240px; margin: 0 auto;
+      display: grid; grid-template-columns: 52% 48%; gap: 56px; align-items: center;
+    }
+    .brand-label {
+      font-family: var(--font-body); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase; color: var(--pink-deep);
+      margin-bottom: 28px;
+    }
+    .brand-headline {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: clamp(38px, 4.5vw, 68px); line-height: 1.05; color: var(--charcoal);
+    }
+    .brand-headline .accent { color: var(--pink-deep); font-style: italic; font-weight: 500; }
+    .brand-body {
+      font-family: var(--font-body); font-weight: 400; font-size: 15px;
+      line-height: 1.85; color: var(--muted); max-width: 420px; margin-top: 28px;
+    }
+    .brand-stats { display: flex; gap: 48px; margin-top: 44px; }
+    .brand-stat-num {
+      font-family: var(--font-display); font-weight: 600; font-size: 48px;
+      color: var(--charcoal); line-height: 1;
+    }
+    .brand-stat-label {
+      font-family: var(--font-body); font-size: 10px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+      margin-top: 8px;
+    }
+    .brand-mosaic {
+      display: grid; grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr; gap: 14px; height: 540px;
+    }
+    .brand-mosaic .img-wrap { overflow: hidden; position: relative; }
+    .brand-mosaic .img-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.6s var(--ease-smooth);
+    }
+    .brand-mosaic .img-wrap:hover img { transform: scale(1.04); }
+    .brand-mosaic .img-wrap:nth-child(1) { grid-row: 1 / 3; border-radius: 80px 16px 16px 16px; }
+    .brand-mosaic .img-wrap:nth-child(2) { border-radius: 16px 80px 16px 16px; }
+    .brand-mosaic .img-wrap:nth-child(3) { border-radius: 16px 16px 80px 16px; }
+    @media (max-width: 768px) {
+      .brand { padding: 80px 24px; }
+      .brand-inner { grid-template-columns: 1fr; }
+      .brand-mosaic { height: 380px; }
+      .brand-stats { gap: 32px; }
+    }
+
+    /* ===== CATEGORIES ===== */
+    .categories { background: var(--bone); padding: 120px 56px; }
+    .cat-grid {
+      max-width: 1240px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+    }
+    .cat-card {
+      aspect-ratio: 3 / 4; border-radius: 28px; overflow: hidden;
+      position: relative; cursor: pointer;
+      transition: transform 0.5s var(--ease-smooth), box-shadow 0.5s ease;
+    }
+    .cat-card:hover {
+      box-shadow: 0 20px 60px rgba(26,18,16,0.15);
+    }
+    .cat-card img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.7s var(--ease-smooth);
+    }
+    .cat-card:hover img { transform: scale(1.08); }
+    .cat-card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,18,16,0.75) 0%, rgba(26,18,16,0.1) 50%, transparent 100%);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 32px;
+    }
+    .cat-card-tag {
+      font-family: var(--font-body); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--pink);
+      margin-bottom: 8px;
+    }
+    .cat-card-name {
+      font-family: var(--font-display); font-size: 26px; font-weight: 600;
+      color: var(--cream);
+    }
+    @media (max-width: 768px) {
+      .categories { padding: 80px 24px; }
+      .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    }
+    @media (max-width: 480px) {
+      .cat-grid { grid-template-columns: 1fr; max-width: 380px; }
+    }
+
+    /* ===== CAMPAIGN STRIP ===== */
+    .campaign { background: var(--cream); padding: 120px 56px; }
+    .campaign-grid {
+      max-width: 1240px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+    }
+    .campaign-card {
+      border-radius: 24px; overflow: hidden;
+      transition: all 0.5s var(--ease-smooth);
+    }
+    .campaign-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 32px 60px rgba(232,129,154,0.2);
+    }
+    .campaign-card img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    @media (max-width: 1024px) {
+      .campaign-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    }
+    @media (max-width: 768px) {
+      .campaign { padding: 80px 24px; }
+      .campaign-grid { gap: 14px; }
+    }
+    @media (max-width: 480px) {
+      .campaign-grid {
+        grid-template-columns: 1fr 1fr; gap: 12px;
+      }
+    }
+
+    /* ===== FOOD STORY ===== */
+    .food-story { background: var(--bone-deep); padding: 120px 56px; }
+    .food-strip-a {
+      max-width: 1240px; margin: 56px auto 0;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+    }
+    .food-strip-a-item { overflow: hidden; border-radius: 24px; }
+    .food-strip-a-item img {
+      width: 100%; height: 380px; object-fit: cover;
+      transition: transform 0.6s var(--ease-smooth);
+    }
+    .food-strip-a-item:hover img { transform: scale(1.05); }
+    .food-strip-a-caption {
+      font-family: var(--font-body); font-size: 11px; font-weight: 600;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+      margin-top: 14px; text-align: center;
+    }
+    .food-mosaic {
+      max-width: 1240px; margin: 48px auto 0;
+      display: grid; grid-template-columns: 1fr 1.5fr 1fr;
+      grid-template-rows: auto auto; gap: 18px;
+    }
+    .food-mosaic-item {
+      border-radius: 20px; overflow: hidden;
+      transition: transform 0.5s var(--ease-smooth);
+    }
+    .food-mosaic-item:hover { transform: scale(1.04); }
+    .food-mosaic-item img { width: 100%; height: 100%; object-fit: cover; }
+    @media (max-width: 768px) {
+      .food-story { padding: 80px 24px; }
+      .food-strip-a { grid-template-columns: 1fr; }
+      .food-strip-a-item img { height: 260px; }
+      .food-mosaic { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ===== STORE SPOTLIGHT ===== */
+    .store-spotlight { background: var(--cream); padding: 120px 56px; }
+    .store-grid {
+      max-width: 1240px; margin: 56px auto 0;
+      display: grid; gap: 14px;
+    }
+    .store-row-1 { display: grid; grid-template-columns: 2fr 1fr; gap: 14px; }
+    .store-row-2 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+    .store-row-3 { display: grid; grid-template-columns: 2fr 1fr; gap: 14px; }
+    .store-img-wrap { border-radius: 20px; overflow: hidden; height: 300px; }
+    .store-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s var(--ease-smooth), filter 0.5s ease;
+      transform: translateZ(0);
+    }
+    .store-img-wrap:hover img { filter: brightness(1.08); transform: scale(1.03) translateZ(0); }
+    .store-text {
+      max-width: 1240px; margin: 36px auto 0;
+      display: flex; justify-content: space-between; align-items: flex-end;
+    }
+    .store-text p {
+      font-family: var(--font-body); font-weight: 400; font-size: 15px;
+      line-height: 1.85; color: var(--muted); max-width: 600px;
+    }
+    .store-cta {
+      font-family: var(--font-body); font-size: 12px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--pink-deep);
+      border-bottom: 2px solid var(--pink-deep);
+      transition: transform 0.3s ease; display: inline-block;
+      padding-bottom: 2px;
+    }
+    .store-cta:hover { transform: translateX(6px); }
+    @media (max-width: 768px) {
+      .store-spotlight { padding: 80px 24px; }
+      .store-row-1, .store-row-2, .store-row-3 { grid-template-columns: 1fr; }
+      .store-img-wrap { height: 220px; }
+      .store-text { flex-direction: column; gap: 16px; }
+    }
+
+    /* ===== LOCATIONS ===== */
+    .locations { background: var(--pink-pale); padding: 120px 56px; }
+    .locations-grid-wrap {
+      max-width: 1140px; margin: 56px auto 0;
+      background: rgba(232,129,154,0.12);
+      border-radius: 28px; overflow: hidden;
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px;
+    }
+    .location-card {
+      background: var(--cream); padding: 40px 32px;
+      position: relative; transition: all 0.4s var(--ease-smooth);
+    }
+    .location-card:hover { background: var(--pink-pale); transform: translateY(-2px); }
+    .location-ghost {
+      position: absolute; top: 16px; right: 20px;
+      font-family: var(--font-display); font-size: 56px; font-weight: 700;
+      color: var(--pink); opacity: 0.1;
+    }
+    .location-city {
+      font-family: var(--font-body); font-size: 10px; font-weight: 700;
+      letter-spacing: 0.18em; color: var(--pink-deep);
+      margin-bottom: 10px;
+    }
+    .location-name {
+      font-family: var(--font-display); font-size: 26px; font-weight: 600;
+      color: var(--charcoal); margin-bottom: 14px;
+    }
+    .location-address {
+      font-family: var(--font-body); font-size: 13px; font-weight: 400;
+      color: var(--muted); line-height: 1.75; margin-bottom: 10px;
+    }
+    .location-email {
+      font-family: var(--font-body); font-size: 13px; font-weight: 500;
+      color: var(--pink-deep); transition: opacity 0.3s ease;
+    }
+    .location-email:hover { opacity: 0.7; }
+    .location-dir {
+      display: inline-block; margin-top: 14px;
+      font-family: var(--font-body); font-size: 11px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--pink-deep);
+      transition: transform 0.3s ease;
+    }
+    .location-dir:hover { transform: translateX(6px); }
+    @media (max-width: 1024px) {
+      .locations-grid-wrap { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .locations { padding: 80px 24px; }
+      .locations-grid-wrap { grid-template-columns: 1fr; }
+    }
+
+    /* ===== INSTAGRAM SECTION ===== */
+    .instagram-section { background: var(--dark); padding: 120px 56px 0; }
+    .ig-top {
+      max-width: 1240px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;
+    }
+    .ig-top-text .ig-label {
+      font-family: var(--font-body); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase; color: var(--pink);
+      margin-bottom: 18px; display: block;
+    }
+    .ig-top-text .ig-headline {
+      font-family: var(--font-display); font-weight: 700; font-style: italic;
+      font-size: clamp(36px, 4.5vw, 64px); color: var(--cream); line-height: 1.1;
+    }
+    .ig-top-text p {
+      font-family: var(--font-body); font-weight: 400; font-size: 15px;
+      line-height: 1.85; color: rgba(247,242,234,0.45); margin-top: 24px;
+    }
+    .ig-ctas { display: flex; gap: 16px; margin-top: 36px; }
+    .btn-pink-pill {
+      font-family: var(--font-body); font-size: 12px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 16px 32px; border-radius: 100px;
+      background: var(--pink); color: var(--dark);
+      transition: all 0.4s var(--ease-smooth);
+      box-shadow: 0 4px 24px rgba(242,168,184,0.25);
+    }
+    .btn-pink-pill:hover {
+      background: var(--pink-deep); transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(242,168,184,0.4);
+    }
+    .btn-ghost-dark {
+      font-family: var(--font-body); font-size: 12px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 16px 32px; border-radius: 100px;
+      border: 1.5px solid rgba(247,242,234,0.15); color: rgba(247,242,234,0.5);
+      transition: all 0.4s var(--ease-smooth);
+    }
+    .btn-ghost-dark:hover {
+      border-color: var(--pink); color: var(--pink);
+      transform: translateY(-2px);
+    }
+    .ig-portrait {
+      border-radius: 32px; overflow: hidden; aspect-ratio: 4 / 5;
+      transition: transform 0.5s var(--ease-smooth), box-shadow 0.5s ease;
+    }
+    .ig-portrait:hover {
+      transform: scale(1.03);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+    }
+    .ig-portrait img { width: 100%; height: 100%; object-fit: cover; }
+    .ig-photo-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+      margin-top: 100px;
+    }
+    .ig-photo-item {
+      aspect-ratio: 1 / 1; overflow: hidden; position: relative;
+    }
+    .ig-photo-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s var(--ease-smooth);
+    }
+    .ig-photo-item:hover img { transform: scale(1.06); }
+    .ig-photo-item::after {
+      content: '\2665'; position: absolute; inset: 0;
+      background: rgba(242,168,184,0.5);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 32px; color: var(--cream);
+      opacity: 0; transition: opacity 0.4s ease;
+    }
+    .ig-photo-item:hover::after { opacity: 1; }
+    @media (max-width: 768px) {
+      .instagram-section { padding: 80px 24px 0; }
+      .ig-top { grid-template-columns: 1fr; }
+      .ig-portrait { max-width: 400px; margin: 36px auto 0; }
+      .ig-photo-grid { grid-template-columns: repeat(2, 1fr); margin-top: 60px; }
+      .ig-ctas { flex-direction: column; }
+    }
+
+    /* ===== FINAL CTA ===== */
+    .final-cta {
+      background: var(--bone); padding: 140px 56px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .final-cta-bg {
+      position: absolute; inset: -20px;
+      background-image: url('food/food18.jpg');
+      background-size: cover; background-position: center;
+      opacity: 0.06; filter: blur(30px);
+    }
+    .final-cta-content { position: relative; z-index: 1; }
+    .final-cta .section-headline { margin-bottom: 18px; }
+    .final-cta-sub {
+      font-family: var(--font-body); font-size: 14px; font-weight: 400;
+      color: var(--muted); margin-bottom: 40px;
+    }
+    .final-cta-buttons { display: flex; gap: 16px; justify-content: center; }
+    .btn-primary-bone {
+      font-family: var(--font-body); font-size: 12px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 16px 36px; border-radius: 100px;
+      background: var(--pink); color: var(--dark);
+      transition: all 0.4s var(--ease-smooth);
+      box-shadow: 0 4px 24px rgba(242,168,184,0.2);
+    }
+    .btn-primary-bone:hover {
+      background: var(--pink-deep); transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(242,168,184,0.35);
+    }
+    .btn-ghost-bone {
+      font-family: var(--font-body); font-size: 12px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 16px 36px; border-radius: 100px;
+      border: 1.5px solid rgba(232,129,154,0.3); color: var(--charcoal);
+      transition: all 0.4s var(--ease-smooth);
+    }
+    .btn-ghost-bone:hover {
+      border-color: var(--pink-deep); color: var(--pink-deep);
+      transform: translateY(-2px);
+    }
+    @media (max-width: 768px) {
+      .final-cta { padding: 80px 24px; }
+      .final-cta-buttons { flex-direction: column; align-items: center; }
+    }
+
+    /* ===== MENU SECTION ===== */
+    .menu-section { background: var(--cream); padding: 0; }
+    .menu-hero {
+      position: relative; height: 320px; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .menu-hero-bg {
+      position: absolute; inset: 0;
+      background: url('food/food%204.jpg') center / cover no-repeat;
+    }
+    .menu-hero-overlay { position: absolute; inset: 0; background: rgba(26,18,16,0.6); }
+    .menu-hero-content { position: relative; z-index: 1; text-align: center; }
+    .menu-hero-content h2 {
+      font-family: var(--font-display); font-style: italic; font-weight: 700;
+      font-size: clamp(44px, 6vw, 80px); color: var(--cream);
+    }
+    .menu-hero-content p {
+      font-family: var(--font-body); font-size: 13px; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(247,242,234,0.5); margin-top: 14px;
+    }
+    .menu-filters {
+      display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+      padding: 44px 56px 36px;
+    }
+    .menu-filter-btn {
+      font-family: var(--font-body); font-size: 11px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 11px 22px; border-radius: 100px;
+      border: 1.5px solid rgba(232,129,154,0.25); color: var(--muted);
+      background: transparent; cursor: pointer;
+      transition: all 0.35s var(--ease-smooth);
+    }
+    .menu-filter-btn.active,
+    .menu-filter-btn:hover {
+      background: var(--pink); color: var(--dark); border-color: var(--pink);
+      box-shadow: 0 4px 16px rgba(242,168,184,0.2);
+    }
+    .menu-grid {
+      max-width: 1240px; margin: 0 auto; padding: 0 56px 100px;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 16px;
+    }
+    .menu-item {
+      background: var(--cream);
+      border: 1px solid rgba(232,129,154,0.1);
+      border-radius: 20px; padding: 24px;
+      transition: all 0.4s var(--ease-smooth);
+    }
+    .menu-item:hover {
+      border-color: rgba(232,129,154,0.3); transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(232,129,154,0.08);
+    }
+    .menu-item-cat {
+      font-family: var(--font-body); font-size: 9px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--pink-deep);
+      margin-bottom: 12px;
+    }
+    .menu-item-name {
+      font-family: var(--font-display); font-size: 21px; font-weight: 600;
+      color: var(--charcoal); margin-bottom: 6px;
+    }
+    .menu-item-desc {
+      font-family: var(--font-body); font-size: 12px; font-weight: 400;
+      color: var(--muted); line-height: 1.7;
+    }
+    @media (max-width: 768px) {
+      .menu-filters { padding: 32px 24px 24px; }
+      .menu-grid { padding: 0 24px 60px; grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .menu-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--dark); padding: 72px 56px 44px;
+      border-top: 1px solid rgba(242,168,184,0.08);
+    }
+    .footer-grid {
+      max-width: 1240px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 56px;
+    }
+    .footer-brand { display: flex; flex-direction: column; }
+    .footer-logo-row { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+    .footer-logo-row img {
+      width: 56px; height: 56px; border-radius: 50%; object-fit: cover;
+      box-shadow: 0 2px 16px rgba(242,168,184,0.15);
+    }
+    .footer-logo-row span {
+      font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--cream);
+    }
+    .footer-brand-sub {
+      font-family: var(--font-body); font-size: 13px; font-weight: 400;
+      color: var(--muted); margin-bottom: 28px;
+    }
+    .footer-newsletter { display: flex; gap: 8px; }
+    .footer-newsletter input {
+      flex: 1; background: rgba(247,242,234,0.06);
+      border: 1px solid rgba(242,168,184,0.15);
+      color: var(--cream); border-radius: 100px; padding: 12px 20px;
+      font-family: var(--font-body); font-size: 13px; font-weight: 400; outline: none;
+      transition: border-color 0.3s ease;
+    }
+    .footer-newsletter input:focus { border-color: var(--pink); }
+    .footer-newsletter input::placeholder { color: rgba(247,242,234,0.3); }
+    .footer-newsletter button {
+      background: var(--pink); color: var(--dark); border-radius: 100px;
+      padding: 12px 22px; font-family: var(--font-body); font-size: 12px;
+      font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+    .footer-newsletter button:hover { background: var(--pink-deep); }
+    .footer-col-label {
+      font-family: var(--font-body); font-size: 10px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--pink);
+      margin-bottom: 22px;
+    }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 12px; }
+    .footer-links a {
+      font-family: var(--font-body); font-size: 14px; font-weight: 400;
+      color: rgba(247,242,234,0.4); transition: color 0.3s ease;
+    }
+    .footer-links a:hover { color: var(--pink); }
+    .footer-bottom {
+      max-width: 1240px; margin: 36px auto 0; padding-top: 28px;
+      border-top: 1px solid rgba(247,242,234,0.05);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-copy {
+      font-family: var(--font-body); font-size: 12px; font-weight: 400;
+      color: rgba(247,242,234,0.25);
+    }
+    .footer-ig-bottom {
+      font-family: var(--font-body); font-size: 11px; font-weight: 600;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--pink);
+      transition: opacity 0.3s ease;
+    }
+    .footer-ig-bottom:hover { opacity: 0.7; }
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .footer { padding: 48px 24px 32px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    }
+
+    /* ===== GPU ACCELERATION ===== */
+    .cat-card, .campaign-card, .food-mosaic-item, .food-strip-a-item,
+    .store-img-wrap, .ig-portrait, .ig-photo-item, .brand-mosaic .img-wrap,
+    .location-card, .menu-item, .nav, .hero-logo-img-wrap {
+      will-change: transform;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+    .cat-card img, .campaign-card img, .food-mosaic-item img,
+    .food-strip-a-item img, .store-img-wrap img, .ig-portrait img,
+    .ig-photo-item img, .brand-mosaic .img-wrap img {
+      will-change: transform;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      transform: translateZ(0);
+    }
+
+    /* ===== REVEAL ANIMATIONS ===== */
+    .reveal {
+      opacity: 0; transform: translate3d(0, 36px, 0);
+      transition: opacity 0.85s var(--ease-smooth), transform 0.85s var(--ease-smooth);
+      will-change: opacity, transform;
+    }
+    .reveal.visible { opacity: 1; transform: translate3d(0, 0, 0); }
+    .reveal-left {
+      opacity: 0; transform: translate3d(-44px, 0, 0);
+      transition: opacity 0.85s var(--ease-smooth), transform 0.85s var(--ease-smooth);
+      will-change: opacity, transform;
+    }
+    .reveal-left.visible { opacity: 1; transform: translate3d(0, 0, 0); }
+    .reveal-right {
+      opacity: 0; transform: translate3d(44px, 0, 0);
+      transition: opacity 0.85s var(--ease-smooth), transform 0.85s var(--ease-smooth);
+      will-change: opacity, transform;
+    }
+    .reveal-right.visible { opacity: 1; transform: translate3d(0, 0, 0); }
+    .reveal-scale {
+      opacity: 0; transform: scale3d(0.92, 0.92, 1);
+      transition: opacity 0.85s var(--ease-smooth), transform 0.85s var(--ease-smooth);
+      will-change: opacity, transform;
+    }
+    .reveal-scale.visible { opacity: 1; transform: scale3d(1, 1, 1); }
+    .stagger-1 { transition-delay: 0.06s; }
+    .stagger-2 { transition-delay: 0.12s; }
+    .stagger-3 { transition-delay: 0.18s; }
+    .stagger-4 { transition-delay: 0.24s; }
+    .stagger-5 { transition-delay: 0.30s; }
+    .stagger-6 { transition-delay: 0.36s; }
+
+    /* ===== GLOBAL SMOOTH SCROLL ===== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="mainNav">
+    <a href="#" class="nav-logo">
+      <img src="joilogo.jpg" alt="Make Me Joi Logo">
+      <span>Make Me Joi</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#menu">MENU</a></li>
+      <li><a href="#locations">LOCATIONS</a></li>
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+    <a href="https://www.instagram.com/makeme.joi/" target="_blank" rel="noopener" class="nav-ig">@makeme.joi</a>
+    <div class="nav-hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Mobile Overlay -->
+  <div class="mobile-overlay" id="mobileOverlay">
+    <button class="mobile-overlay-close" id="overlayClose">&times;</button>
+    <a href="#menu" class="mobile-nav-link">Menu</a>
+    <a href="#locations" class="mobile-nav-link">Locations</a>
+    <a href="#about" class="mobile-nav-link">About</a>
+    <a href="#contact" class="mobile-nav-link">Contact</a>
+    <a href="#videos" class="mobile-nav-link">Videos</a>
+    <a href="https://www.instagram.com/makeme.joi/" target="_blank" rel="noopener" class="mobile-ig">@makeme.joi</a>
+  </div>
+
+  <!-- Hero: Left Video | Center 3D Logo | Right Video -->
+  <section class="hero">
+    <div class="hero-panel hero-panel-video">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="video/video2.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-panel hero-panel-center">
+      <div class="hero-logo-3d" id="heroLogo3d">
+        <div class="hero-logo-glow"></div>
+        <div class="hero-logo-img-wrap">
+          <img src="joilogo.jpg" alt="Make Me Joi">
+        </div>
+      </div>
+    </div>
+    <div class="hero-panel hero-panel-video">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="video/video5.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-label">Coffee & Juice · İstanbul</div>
+      <h1 class="hero-title">
+        <span class="hero-title-line1">Make Me</span>
+        <span class="hero-title-line2">Joi.</span>
+      </h1>
+      <p class="hero-sub">Cold pressed. Handcrafted. Always fresh.</p>
+      <div class="hero-ctas">
+        <a href="#menu" class="btn-primary">Explore Menu</a>
+        <a href="#locations" class="btn-ghost">Find a Store</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="marquee-item">Coffee & Juice</span><span class="marquee-dot">&middot;</span>
+      <span class="marquee-item">Cold Pressed</span><span class="marquee-dot">&middot;</span>
+      <span class="marquee-item">Fresh Smoothies</span><span class="marquee-dot">&middot;</span>
+      <span class="marquee-item">İstanbul</span><span class="marquee-dot">&middot;</span>
+      <span class="marquee-item">Bahçeşehir</span><span class="marquee-dot">&middot;</span>
+      <span class="marquee-item">Göcek</span><span class="marquee-dot">&middot;</span>
+      <span class="marquee-item">Alsancak</span><span class="marquee-dot">&middot;</span>
+      <span class="marquee-item">Real Ingredients</span><span class="marquee-dot">&middot;</span>
+      <span class="marquee-item">Good Vibes</span><span class="marquee-dot">&middot;</span>
+      <span class="marquee-item">Make Me Joi</span><span class="marquee-dot">&middot;</span>
+      <span class="marquee-item">Run Baby</span><span class="marquee-dot">&middot;</span>
+      <span class="marquee-item">Summer Daze</span><span class="marquee-dot">&middot;</span>
+      <span class="marquee-item">Joi Paradise</span><span class="marquee-dot">&middot;</span>
+      <span class="marquee-item">Coffee & Juice</span><span class="marquee-dot">&middot;</span>
+      <span class="marquee-item">Cold Pressed</span><span class="marquee-dot">&middot;</span>
+      <span class="marquee-item">Fresh Smoothies</span><span class="marquee-dot">&middot;</span>
+      <span class="marquee-item">İstanbul</span><span class="marquee-dot">&middot;</span>
+      <span class="marquee-item">Bahçeşehir</span><span class="marquee-dot">&middot;</span>
+      <span class="marquee-item">Göcek</span><span class="marquee-dot">&middot;</span>
+      <span class="marquee-item">Alsancak</span><span class="marquee-dot">&middot;</span>
+      <span class="marquee-item">Real Ingredients</span><span class="marquee-dot">&middot;</span>
+      <span class="marquee-item">Good Vibes</span><span class="marquee-dot">&middot;</span>
+      <span class="marquee-item">Make Me Joi</span><span class="marquee-dot">&middot;</span>
+      <span class="marquee-item">Run Baby</span><span class="marquee-dot">&middot;</span>
+      <span class="marquee-item">Summer Daze</span><span class="marquee-dot">&middot;</span>
+      <span class="marquee-item">Joi Paradise</span><span class="marquee-dot">&middot;</span>
+    </div>
+  </div>
+
+  <!-- Brand Statement -->
+  <section class="brand" id="about">
+    <div class="brand-inner">
+      <div class="reveal-left">
+        <div class="brand-label">Who We Are</div>
+        <h2 class="brand-headline">
+          Pure joy<br>in every<br><span class="accent">sip.</span>
+        </h2>
+        <p class="brand-body">
+          Make Me Joi is a contemporary coffee and juice brand born in İstanbul.
+          Every cup, every bowl, every ingredient · chosen with care, crafted with
+          intention, and served with the energy of a city that never stops moving.
+        </p>
+        <div class="brand-stats">
+          <div>
+            <div class="brand-stat-num">6</div>
+            <div class="brand-stat-label">Locations</div>
+          </div>
+          <div>
+            <div class="brand-stat-num">100%</div>
+            <div class="brand-stat-label">Natural</div>
+          </div>
+          <div>
+            <div class="brand-stat-num">&infin;</div>
+            <div class="brand-stat-label">Good Energy</div>
+          </div>
+        </div>
+      </div>
+      <div class="brand-mosaic reveal-right">
+        <div class="img-wrap">
+          <img src="food/food6.jpg" alt="Green smoothie with avocado and broccoli" loading="lazy">
+        </div>
+        <div class="img-wrap">
+          <img src="food/food13.jpg" alt="Grapefruit being squeezed fresh" loading="lazy">
+        </div>
+        <div class="img-wrap">
+          <img src="food/food1.jpg" alt="Date shake smoothie" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="categories">
+    <div class="section-header reveal">
+      <span class="section-label">Discover</span>
+      <h2 class="section-headline"><i>The world in a glass.</i></h2>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card card-tilt reveal stagger-1">
+        <img src="food/food5.jpg" alt="Chocolate iced coffee" loading="lazy">
+        <div class="cat-card-overlay">
+          <div class="cat-card-tag">Espresso, Latte, Cold Brew</div>
+          <div class="cat-card-name">Coffee</div>
+        </div>
+      </div>
+      <div class="cat-card card-tilt reveal stagger-2">
+        <img src="food/food3.jpg" alt="Tropical smoothies on pink blocks" loading="lazy">
+        <div class="cat-card-overlay">
+          <div class="cat-card-tag">11 varieties, daily fresh</div>
+          <div class="cat-card-name">Fresh Juice</div>
+        </div>
+      </div>
+      <div class="cat-card card-tilt reveal stagger-3">
+        <img src="food/food1.jpg" alt="Date shake smoothie" loading="lazy">
+        <div class="cat-card-overlay">
+          <div class="cat-card-tag">Protein based, natural</div>
+          <div class="cat-card-name">Smoothie</div>
+        </div>
+      </div>
+      <div class="cat-card card-tilt reveal stagger-4">
+        <img src="food/foodgreen8.jpg" alt="Green Matcha bowl" loading="lazy">
+        <div class="cat-card-overlay">
+          <div class="cat-card-tag">Matcha, Acai, Spirulina</div>
+          <div class="cat-card-name">Bowl</div>
+        </div>
+      </div>
+      <div class="cat-card card-tilt reveal stagger-5">
+        <img src="food/food%204.jpg" alt="Sandwiches and juice editorial" loading="lazy">
+        <div class="cat-card-overlay">
+          <div class="cat-card-tag">Made fresh daily</div>
+          <div class="cat-card-name">Sandwich & Wrap</div>
+        </div>
+      </div>
+      <div class="cat-card card-tilt reveal stagger-6">
+        <img src="food/foodfood14.jpg" alt="Acai bowl flatlay" loading="lazy">
+        <div class="cat-card-overlay">
+          <div class="cat-card-tag">World selections</div>
+          <div class="cat-card-name">Desserts</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Campaign Strip: Good Morning İstanbul -->
+  <section class="campaign">
+    <div class="section-header reveal">
+      <span class="section-label">Campaigns</span>
+      <h2 class="section-headline"><i>Good morning,</i><br>İstanbul.</h2>
+    </div>
+    <div class="campaign-grid">
+      <div class="campaign-card reveal stagger-1">
+        <img src="food/foodgreen7.jpg" alt="Good Morning campaign poster" loading="lazy">
+      </div>
+      <div class="campaign-card reveal stagger-2">
+        <img src="food/foodgreen8.jpg" alt="Get Green Matcha bowl poster" loading="lazy">
+      </div>
+      <div class="campaign-card reveal stagger-3">
+        <img src="food/foodgreen9.jpg" alt="Summer Daze bowl editorial" loading="lazy">
+      </div>
+      <div class="campaign-card reveal stagger-4">
+        <img src="food/foodgreen10.jpg" alt="Joi Veggie Wrap poster" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Food Story -->
+  <section class="food-story">
+    <div class="section-header reveal">
+      <span class="section-label">Taste</span>
+      <h2 class="section-headline"><i>Eat well,</i><br><span class="accent">live bold.</span></h2>
+    </div>
+    <div class="food-strip-a">
+      <div class="food-strip-a-item reveal stagger-1">
+        <img src="food/foodfood14.jpg" alt="Acai bowl flatlay, lifestyle editorial" loading="lazy">
+        <div class="food-strip-a-caption">Acai Bowl</div>
+      </div>
+      <div class="food-strip-a-item reveal stagger-2">
+        <img src="food/foodfood16.jpg" alt="People sharing drinks, social table scene" loading="lazy">
+        <div class="food-strip-a-caption">Joi Moments</div>
+      </div>
+    </div>
+    <div class="food-mosaic">
+      <div class="food-mosaic-item reveal stagger-1">
+        <img src="food/food%204.jpg" alt="Sandwiches and juice editorial" loading="lazy">
+      </div>
+      <div class="food-mosaic-item reveal stagger-2">
+        <img src="food/food3.jpg" alt="Tropical smoothies" loading="lazy">
+      </div>
+      <div class="food-mosaic-item reveal stagger-3">
+        <img src="food/food18.jpg" alt="JoiParadise editorial with cactus" loading="lazy">
+      </div>
+      <div class="food-mosaic-item reveal stagger-4">
+        <img src="food/food19.jpg" alt="Colorful festive lifestyle collage" loading="lazy">
+      </div>
+      <div class="food-mosaic-item reveal stagger-5">
+        <img src="food/food13.jpg" alt="Fresh grapefruit squeeze" loading="lazy">
+      </div>
+      <div class="food-mosaic-item reveal stagger-6">
+        <img src="food/food12.jpg" alt="Person holding juice pouch, lifestyle" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Store Spotlight -->
+  <section class="store-spotlight">
+    <div class="section-header reveal">
+      <span class="section-label">The Space</span>
+      <h2 class="section-headline"><i>A corner</i> in Bahçeşehir.</h2>
+    </div>
+    <div class="store-grid">
+      <div class="store-row-1">
+        <div class="store-img-wrap reveal stagger-1">
+          <img src="store%20bahcesehir/storeA2.jpg" alt="Make Me Joi Bahçeşehir storefront signage" loading="eager" decoding="async">
+        </div>
+        <div class="store-img-wrap reveal stagger-2">
+          <img src="store%20bahcesehir/storeA1.jpg" alt="Colorful outdoor seating area" loading="eager" decoding="async">
+        </div>
+      </div>
+      <div class="store-row-2">
+        <div class="store-img-wrap reveal stagger-3">
+          <img src="store%20bahcesehir/storeA3.jpg" alt="Warm bright interior" loading="eager" decoding="async">
+        </div>
+        <div class="store-img-wrap reveal stagger-4">
+          <img src="store%20bahcesehir/storeA4.jpg" alt="Interior wide shot with wood and light" loading="eager" decoding="async">
+        </div>
+        <div class="store-img-wrap reveal stagger-5">
+          <img src="store%20bahcesehir/storeA5.jpg" alt="Interior shelf with green plant" loading="eager" decoding="async">
+        </div>
+      </div>
+      <div class="store-row-3">
+        <div class="store-img-wrap reveal stagger-5">
+          <img src="store%20bahcesehir/storeA6.jpg" alt="Architectural staircase" loading="eager" decoding="async">
+        </div>
+        <div class="store-img-wrap reveal stagger-6">
+          <img src="store%20bahcesehir/storeA7.jpg" alt="Full exterior facade" loading="eager" decoding="async">
+        </div>
+      </div>
+    </div>
+    <div class="store-text reveal">
+      <p>At our Bahçeşehir location, there's a spot for everyone throughout the day. From freshly squeezed juice to carefully crafted coffee · everything done right.</p>
+      <a href="#locations" class="store-cta">Get Directions &rarr;</a>
+    </div>
+  </section>
+
+  <!-- Locations -->
+  <section class="locations" id="locations">
+    <div class="section-header reveal">
+      <span class="section-label">Stores</span>
+      <h2 class="section-headline">6 cities.<br><i>One feeling.</i></h2>
+    </div>
+    <div class="locations-grid-wrap">
+      <div class="location-card reveal stagger-1">
+        <div class="location-ghost">01</div>
+        <div class="location-city">ISTANBUL</div>
+        <div class="location-name">Bahçeşehir</div>
+        <div class="location-address">Bahçeşehir 1.Kısım Mah Doğa Parkı Cad. I Blok No:13 15, Başakşehir/Istanbul</div>
+        <a href="mailto:info@makemejoi.com" class="location-email">info@makemejoi.com</a><br>
+        <a href="#" class="location-dir">Get Directions &rarr;</a>
+      </div>
+      <div class="location-card reveal stagger-2">
+        <div class="location-ghost">02</div>
+        <div class="location-city">ISTANBUL</div>
+        <div class="location-name">Yeşilköy</div>
+        <div class="location-address">Yeşilköy, Yeşilyalı Sk. 4 8, 34149 Bakırköy/Istanbul</div>
+        <a href="mailto:info@makemejoi.com" class="location-email">info@makemejoi.com</a><br>
+        <a href="#" class="location-dir">Get Directions &rarr;</a>
+      </div>
+      <div class="location-card reveal stagger-3">
+        <div class="location-ghost">03</div>
+        <div class="location-city">ISTANBUL</div>
+        <div class="location-name">Arenapark</div>
+        <div class="location-address">Çiçekli Vadi Cd. Arena Park AVM D:1 B No:36, Küçükçekmece/Istanbul</div>
+        <a href="mailto:info@makemejoi.com" class="location-email">info@makemejoi.com</a><br>
+        <a href="#" class="location-dir">Get Directions &rarr;</a>
+      </div>
+      <div class="location-card reveal stagger-4">
+        <div class="location-ghost">04</div>
+        <div class="location-city">ISTANBUL</div>
+        <div class="location-name">Merkez</div>
+        <div class="location-address">Yenibosna Merkez, Cemal Ulusoy Cd. N:49, 34197 Yenibosna/Istanbul</div>
+        <a href="mailto:info@makemejoi.com" class="location-email">info@makemejoi.com</a><br>
+        <a href="#" class="location-dir">Get Directions &rarr;</a>
+      </div>
+      <div class="location-card reveal stagger-5">
+        <div class="location-ghost">05</div>
+        <div class="location-city">MUGLA</div>
+        <div class="location-name">Göcek</div>
+        <div class="location-address">Göcek, İskele Meydanı No:5/A, 48300 Fethiye/Mugla</div>
+        <a href="mailto:info@makemejoi.com" class="location-email">info@makemejoi.com</a><br>
+        <a href="#" class="location-dir">Get Directions &rarr;</a>
+      </div>
+      <div class="location-card reveal stagger-6">
+        <div class="location-ghost">06</div>
+        <div class="location-city">IZMIR</div>
+        <div class="location-name">Alsancak</div>
+        <div class="location-address">Kültür, Dr. Mustafa Enver Bey Cd. No:5/A, 35220 Konak/Izmir</div>
+        <a href="mailto:info@makemejoi.com" class="location-email">info@makemejoi.com</a><br>
+        <a href="#" class="location-dir">Get Directions &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram Section -->
+  <section class="instagram-section">
+    <div class="ig-top">
+      <div class="ig-top-text reveal-left">
+        <span class="ig-label">Join Our Community</span>
+        <h2 class="ig-headline">Follow the<br>freshness.</h2>
+        <p>Every color, every sip, every smile · we want to see it all.</p>
+        <div class="ig-ctas">
+          <a href="https://www.instagram.com/makeme.joi/" target="_blank" rel="noopener" class="btn-pink-pill">@makeme.joi</a>
+          <a href="#menu" class="btn-ghost-dark">See Menu</a>
+        </div>
+      </div>
+      <div class="ig-portrait reveal-right">
+        <img src="food/food15.jpg" alt="Two cups held up against Joi sign with bright sky" loading="lazy">
+      </div>
+    </div>
+    <div class="ig-photo-grid">
+      <div class="ig-photo-item">
+        <img src="food/foodfood16.jpg" alt="Social moments at Joi" loading="lazy">
+      </div>
+      <div class="ig-photo-item">
+        <img src="food/food17.jpg" alt="Hand holding cup with blue sky" loading="lazy">
+      </div>
+      <div class="ig-photo-item">
+        <img src="food/food2.jpg" alt="Iced coffee against cobalt blue wall" loading="lazy">
+      </div>
+      <div class="ig-photo-item">
+        <img src="food/food19.jpg" alt="Colorful festive lifestyle" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta">
+    <div class="final-cta-bg"></div>
+    <div class="final-cta-content reveal">
+      <h2 class="section-headline"><i>A good feeling starts with a glass.</i></h2>
+      <p class="final-cta-sub">Find your nearest location.</p>
+      <div class="final-cta-buttons">
+        <a href="#locations" class="btn-primary-bone">Locations</a>
+        <a href="#menu" class="btn-ghost-bone">Explore Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section class="menu-section" id="menu">
+    <div class="menu-hero">
+      <div class="menu-hero-bg"></div>
+      <div class="menu-hero-overlay"></div>
+      <div class="menu-hero-content">
+        <h2>Menu</h2>
+        <p>Natural. Fresh. Always.</p>
+      </div>
+    </div>
+    <div class="menu-filters">
+      <button class="menu-filter-btn active" data-cat="all">All</button>
+      <button class="menu-filter-btn" data-cat="kahve">Coffee</button>
+      <button class="menu-filter-btn" data-cat="juice">Juice</button>
+      <button class="menu-filter-btn" data-cat="smoothie">Smoothie</button>
+      <button class="menu-filter-btn" data-cat="bowl">Bowl</button>
+      <button class="menu-filter-btn" data-cat="sandvic">Sandwich</button>
+      <button class="menu-filter-btn" data-cat="salata">Salad</button>
+      <button class="menu-filter-btn" data-cat="tatli">Dessert</button>
+      <button class="menu-filter-btn" data-cat="cay">Tea</button>
+      <button class="menu-filter-btn" data-cat="kahvalti">Breakfast</button>
+    </div>
+    <div class="menu-grid" id="menuGrid">
+      <!-- COFFEE -->
+      <div class="menu-item" data-cat="kahve"><div class="menu-item-cat">Coffee</div><div class="menu-item-name">Americano</div></div>
+      <div class="menu-item" data-cat="kahve"><div class="menu-item-cat">Coffee</div><div class="menu-item-name">Cappuccino</div></div>
+      <div class="menu-item" data-cat="kahve"><div class="menu-item-cat">Coffee</div><div class="menu-item-name">Coffee Latte</div></div>
+      <div class="menu-item" data-cat="kahve"><div class="menu-item-cat">Coffee</div><div class="menu-item-name">Flat White</div></div>
+      <div class="menu-item" data-cat="kahve"><div class="menu-item-cat">Coffee</div><div class="menu-item-name">Espresso</div></div>
+      <div class="menu-item" data-cat="kahve"><div class="menu-item-cat">Coffee</div><div class="menu-item-name">Cortado</div></div>
+      <div class="menu-item" data-cat="kahve"><div class="menu-item-cat">Coffee</div><div class="menu-item-name">Espresso Macchiato</div></div>
+      <div class="menu-item" data-cat="kahve"><div class="menu-item-cat">Coffee</div><div class="menu-item-name">Caramel Macchiato</div></div>
+      <div class="menu-item" data-cat="kahve"><div class="menu-item-cat">Coffee</div><div class="menu-item-name">Coffee Mocha</div></div>
+      <div class="menu-item" data-cat="kahve"><div class="menu-item-cat">Coffee</div><div class="menu-item-name">White Mocha</div></div>
+      <div class="menu-item" data-cat="kahve"><div class="menu-item-cat">Coffee</div><div class="menu-item-name">Chai Tea Latte</div></div>
+      <div class="menu-item" data-cat="kahve"><div class="menu-item-cat">Coffee</div><div class="menu-item-name">Cold Brew Tea & Coffee</div></div>
+      <div class="menu-item" data-cat="kahve"><div class="menu-item-cat">Coffee</div><div class="menu-item-name">Turkish Coffee</div></div>
+      <div class="menu-item" data-cat="kahve"><div class="menu-item-cat">Coffee</div><div class="menu-item-name">Iced Turkish Coffee</div></div>
+      <div class="menu-item" data-cat="kahve"><div class="menu-item-cat">Coffee</div><div class="menu-item-name">Filter Coffee</div></div>
+      <!-- JUICE -->
+      <div class="menu-item" data-cat="juice"><div class="menu-item-cat">Juice</div><div class="menu-item-name">Chill Out</div><div class="menu-item-desc">Red Pepper, Lemon, Apple</div></div>
+      <div class="menu-item" data-cat="juice"><div class="menu-item-cat">Juice</div><div class="menu-item-name">Day Dream</div><div class="menu-item-desc">Raspberry, Banana, Apple</div></div>
+      <div class="menu-item" data-cat="juice"><div class="menu-item-cat">Juice</div><div class="menu-item-name">Fit Me</div><div class="menu-item-desc">Avocado, Broccoli, Spinach, Lemon, Green Apple</div></div>
+      <div class="menu-item" data-cat="juice"><div class="menu-item-cat">Juice</div><div class="menu-item-name">Hangover Shot</div><div class="menu-item-desc">Ginger, Apple</div></div>
+      <div class="menu-item" data-cat="juice"><div class="menu-item-cat">Juice</div><div class="menu-item-name">Joi Paradise</div><div class="menu-item-desc">Passion Fruit, Pineapple, Apple</div></div>
+      <div class="menu-item" data-cat="juice"><div class="menu-item-cat">Juice</div><div class="menu-item-name">Kiss Me</div><div class="menu-item-desc">Strawberry, Kiwi, Apple</div></div>
+      <div class="menu-item" data-cat="juice"><div class="menu-item-cat">Juice</div><div class="menu-item-name">Mind Daze</div><div class="menu-item-desc">Celery, Lemon, Apple</div></div>
+      <div class="menu-item" data-cat="juice"><div class="menu-item-cat">Juice</div><div class="menu-item-name">Root's</div><div class="menu-item-desc">Carrot, Ginger, Apple</div></div>
+      <div class="menu-item" data-cat="juice"><div class="menu-item-cat">Juice</div><div class="menu-item-name">Run Baby</div><div class="menu-item-desc">Grapefruit, Ginger, Apple</div></div>
+      <div class="menu-item" data-cat="juice"><div class="menu-item-cat">Juice</div><div class="menu-item-name">Summer Daze</div><div class="menu-item-desc">Cucumber, Green Apple, Lemon, Parsley</div></div>
+      <div class="menu-item" data-cat="juice"><div class="menu-item-cat">Juice</div><div class="menu-item-name">Joi Mango Rise</div><div class="menu-item-desc">Mango, Pineapple, Apple</div></div>
+      <!-- SMOOTHIE -->
+      <div class="menu-item" data-cat="smoothie"><div class="menu-item-cat">Smoothie</div><div class="menu-item-name">Coffee IN</div><div class="menu-item-desc">Espresso, Honey, Vanilla Protein Milk</div></div>
+      <div class="menu-item" data-cat="smoothie"><div class="menu-item-cat">Smoothie</div><div class="menu-item-name">HI Chocolate</div><div class="menu-item-desc">Belgian Chocolate, Banana, Honey, Vanilla Protein Milk</div></div>
+      <div class="menu-item" data-cat="smoothie"><div class="menu-item-cat">Smoothie</div><div class="menu-item-name">It's Pink</div><div class="menu-item-desc">Strawberry, Banana, Honey, Vanilla Protein Milk</div></div>
+      <div class="menu-item" data-cat="smoothie"><div class="menu-item-cat">Smoothie</div><div class="menu-item-name">Joyz On You</div><div class="menu-item-desc">Raspberry, Banana, Vanilla Protein Milk</div></div>
+      <div class="menu-item" data-cat="smoothie"><div class="menu-item-cat">Smoothie</div><div class="menu-item-name">Make Me Avocado</div><div class="menu-item-desc">Avocado, Banana, Honey, Vanilla Protein Milk</div></div>
+      <div class="menu-item" data-cat="smoothie"><div class="menu-item-cat">Smoothie</div><div class="menu-item-name">Bombshell Acai</div><div class="menu-item-desc">Acai Powder, Black Mulberry, Banana, Honey, Vanilla Protein Milk</div></div>
+      <div class="menu-item" data-cat="smoothie"><div class="menu-item-cat">Smoothie</div><div class="menu-item-name">Joi Spirit</div><div class="menu-item-desc">Spirulina Powder, Pineapple, Banana, Honey, Vanilla Protein Milk</div></div>
+      <div class="menu-item" data-cat="smoothie"><div class="menu-item-cat">Smoothie</div><div class="menu-item-name">Matcha Milk Tea</div><div class="menu-item-desc">Matcha Tea, Milk, Mint or Honey</div></div>
+      <!-- BOWL -->
+      <div class="menu-item" data-cat="bowl"><div class="menu-item-cat">Bowl</div><div class="menu-item-name">Get Green Matcha</div><div class="menu-item-desc">Banana, Peanut Butter, Matcha Powder, Strained Yogurt, Honey, Pineapple, Chia, Granola, Coconut, Blueberry</div></div>
+      <div class="menu-item" data-cat="bowl"><div class="menu-item-cat">Bowl</div><div class="menu-item-name">Get Pink Acai</div><div class="menu-item-desc">Banana, Peanut Butter, Acai Powder, Strained Yogurt, Honey, Black Mulberry, Chia, Granola, Coconut, Strawberry</div></div>
+      <div class="menu-item" data-cat="bowl"><div class="menu-item-cat">Bowl</div><div class="menu-item-name">Get Blue Spirulina</div><div class="menu-item-desc">Banana, Peanut Butter, Spirulina Powder, Strained Yogurt, Honey, Fresh Mint, Chia, Granola, Coconut, Blueberry</div></div>
+      <div class="menu-item" data-cat="bowl"><div class="menu-item-cat">Bowl</div><div class="menu-item-name">Good Morning Bowl</div><div class="menu-item-desc">Cheese, Olives, Cherry Tomatoes, Arugula, Walnut, Grissini, Pineapple, Red Pepper</div></div>
+      <div class="menu-item" data-cat="bowl"><div class="menu-item-cat">Bowl</div><div class="menu-item-name">The Avocado Bowl</div><div class="menu-item-desc">Avocado, Chickpeas, Cherry Tomatoes, Cucumber, Carrot, Feta Cheese</div></div>
+      <!-- SANDWICH -->
+      <div class="menu-item" data-cat="sandvic"><div class="menu-item-cat">Sandwich & Wrap</div><div class="menu-item-name">Avocado Mozz Sandwich</div><div class="menu-item-desc">Avocado, Mozzarella, Sun-dried Tomatoes, Pesto Sauce</div></div>
+      <div class="menu-item" data-cat="sandvic"><div class="menu-item-cat">Sandwich & Wrap</div><div class="menu-item-name">Cheddar Beef Sandwich</div><div class="menu-item-desc">Smoked Beef, Cheddar Cheese, Tomato Ranch Sauce</div></div>
+      <div class="menu-item" data-cat="sandvic"><div class="menu-item-cat">Sandwich & Wrap</div><div class="menu-item-name">Cheese & Tomato Sandwich</div><div class="menu-item-desc">Feta Cheese, Olive Paste, Tomato, Cucumber</div></div>
+      <div class="menu-item" data-cat="sandvic"><div class="menu-item-cat">Sandwich & Wrap</div><div class="menu-item-name">Chicken Sandwich</div><div class="menu-item-desc">Chicken, Cheddar, Tomato, Ranch Sauce</div></div>
+      <div class="menu-item" data-cat="sandvic"><div class="menu-item-cat">Sandwich & Wrap</div><div class="menu-item-name">Joi Veggie Wrap</div><div class="menu-item-desc">Corn, Red Beans, Pickles, Quinoa, Ranch Sauce, Avocado, Carrot</div></div>
+      <!-- SALAD -->
+      <div class="menu-item" data-cat="salata"><div class="menu-item-cat">Salad</div><div class="menu-item-name">Full Wheat Salad</div><div class="menu-item-desc">Chickpeas/Wheat, Red/Green Pepper, Parsley, Mint, Carrot, Cucumber</div></div>
+      <div class="menu-item" data-cat="salata"><div class="menu-item-cat">Salad</div><div class="menu-item-name">Mr. Bean Salad</div><div class="menu-item-desc">Black-eyed Peas, Cherry Tomatoes, Pickled Arugula, Parsley, Fresh Mint</div></div>
+      <div class="menu-item" data-cat="salata"><div class="menu-item-cat">Salad</div><div class="menu-item-name">Kinoa Salad</div><div class="menu-item-desc">Quinoa, Red Beans, Cherry Tomatoes, Cucumber, Red Pepper, Carrot</div></div>
+      <!-- TEA -->
+      <div class="menu-item" data-cat="cay"><div class="menu-item-cat">Tea</div><div class="menu-item-name">Detox Tea</div></div>
+      <div class="menu-item" data-cat="cay"><div class="menu-item-cat">Tea</div><div class="menu-item-name">Bora Bora Tea</div></div>
+      <div class="menu-item" data-cat="cay"><div class="menu-item-cat">Tea</div><div class="menu-item-name">Mate Tea</div></div>
+      <div class="menu-item" data-cat="cay"><div class="menu-item-cat">Tea</div><div class="menu-item-name">Hibiscus Tea</div></div>
+      <div class="menu-item" data-cat="cay"><div class="menu-item-cat">Tea</div><div class="menu-item-name">Earl Grey</div></div>
+      <!-- DESSERT -->
+      <div class="menu-item" data-cat="tatli"><div class="menu-item-cat">Dessert</div><div class="menu-item-name">Torta Caprese</div></div>
+      <div class="menu-item" data-cat="tatli"><div class="menu-item-cat">Dessert</div><div class="menu-item-name">Apple Pie</div></div>
+      <div class="menu-item" data-cat="tatli"><div class="menu-item-cat">Dessert</div><div class="menu-item-name">Medovik</div></div>
+      <div class="menu-item" data-cat="tatli"><div class="menu-item-cat">Dessert</div><div class="menu-item-name">Pastel De Nata</div></div>
+      <div class="menu-item" data-cat="tatli"><div class="menu-item-cat">Dessert</div><div class="menu-item-name">San Sebastian</div></div>
+      <div class="menu-item" data-cat="tatli"><div class="menu-item-cat">Dessert</div><div class="menu-item-name">Matcha Tea Cake</div></div>
+      <div class="menu-item" data-cat="tatli"><div class="menu-item-cat">Dessert</div><div class="menu-item-name">Berliner</div><div class="menu-item-desc">Pastry Cream, Chocolate, Cream Cheese</div></div>
+      <!-- BREAKFAST -->
+      <div class="menu-item" data-cat="kahvalti"><div class="menu-item-cat">Breakfast</div><div class="menu-item-name">Cheesy Scrambled Egg</div><div class="menu-item-desc">Egg, Kashkaval Cheese, Arugula, Red Pepper, Tomato, Bread</div></div>
+      <div class="menu-item" data-cat="kahvalti"><div class="menu-item-cat">Breakfast</div><div class="menu-item-name">Vegetable Scrambled Egg</div><div class="menu-item-desc">Egg, Spinach, Tomato, Arugula, Bread</div></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-row">
+          <img src="joilogo.jpg" alt="Make Me Joi Logo">
+          <span>Make Me Joi</span>
+        </div>
+        <div class="footer-brand-sub">Coffee & Juice · İstanbul · Turkey</div>
+        <div class="footer-newsletter">
+          <input type="email" placeholder="Your email address">
+          <button type="button">Subscribe</button>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-label">Explore</div>
+        <ul class="footer-links">
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#locations">Locations</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">Franchise</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-label">Locations</div>
+        <ul class="footer-links">
+          <li><a href="#locations">Bahçeşehir</a></li>
+          <li><a href="#locations">Yeşilköy</a></li>
+          <li><a href="#locations">Arenapark</a></li>
+          <li><a href="#locations">Yenibosna</a></li>
+          <li><a href="#locations">Göcek</a></li>
+          <li><a href="#locations">Alsancak</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-label">Connect</div>
+        <ul class="footer-links">
+          <li><a href="https://www.instagram.com/makeme.joi/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="mailto:info@makemejoi.com">Email</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2025 Make Me Joi. All rights reserved.</div>
+      <a href="https://www.instagram.com/makeme.joi/" target="_blank" rel="noopener" class="footer-ig-bottom">@makeme.joi</a>
+    </div>
+  </footer>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FoodEstablishment",
+    "name": "Make Me Joi",
+    "servesCuisine": ["Coffee", "Juice", "Smoothie", "Healthy Food"],
+    "url": "https://makemejoi.com",
+    "logo": "https://makemejoi.com/joilogo.jpg",
+    "sameAs": ["https://www.instagram.com/makeme.joi/"],
+    "hasOfferCatalog": { "@type": "OfferCatalog", "name": "Menu" },
+    "location": [
+      { "@type": "Place", "name": "Make Me Joi Bahçeşehir",
+        "address": { "@type": "PostalAddress",
+          "streetAddress": "Bahçeşehir 1.Kısım Mah Doğa Parkı Cad. I Blok No:13 15",
+          "addressLocality": "Başakşehir", "addressRegion": "İstanbul", "addressCountry": "TR" }},
+      { "@type": "Place", "name": "Make Me Joi Yeşilköy",
+        "address": { "@type": "PostalAddress",
+          "streetAddress": "Yeşilköy, Yeşilyalı Sk. 4 8, 34149",
+          "addressLocality": "Bakırköy", "addressRegion": "İstanbul", "addressCountry": "TR" }},
+      { "@type": "Place", "name": "Make Me Joi Arenapark",
+        "address": { "@type": "PostalAddress",
+          "streetAddress": "Çiçekli Vadi Cd. Arena Park AVM D:1 B No:36",
+          "addressLocality": "Küçükçekmece", "addressRegion": "İstanbul", "addressCountry": "TR" }},
+      { "@type": "Place", "name": "Make Me Joi Merkez",
+        "address": { "@type": "PostalAddress",
+          "streetAddress": "Yenibosna Merkez, Cemal Ulusoy Cd. N:49, 34197",
+          "addressLocality": "Yenibosna", "addressRegion": "İstanbul", "addressCountry": "TR" }},
+      { "@type": "Place", "name": "Make Me Joi Göcek",
+        "address": { "@type": "PostalAddress",
+          "streetAddress": "Göcek, İskele Meydanı No:5/A, 48300",
+          "addressLocality": "Fethiye", "addressRegion": "Muğla", "addressCountry": "TR" }},
+      { "@type": "Place", "name": "Make Me Joi Alsancak",
+        "address": { "@type": "PostalAddress",
+          "streetAddress": "Kültür, Dr. Mustafa Enver Bey Cd. No:5/A, 35220",
+          "addressLocality": "Konak", "addressRegion": "İzmir", "addressCountry": "TR" }}
+    ]
+  }
+  </script>
+
+  <script>
+    /* ===== NAV SCROLL (RAF-throttled) ===== */
+    let navTicking = false;
+    const mainNavEl = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      if (!navTicking) {
+        requestAnimationFrame(() => {
+          mainNavEl.classList.toggle('scrolled', window.scrollY > 60);
+          navTicking = false;
+        });
+        navTicking = true;
+      }
+    }, { passive: true });
+
+    /* ===== HAMBURGER ===== */
+    const hamburger = document.getElementById('hamburger');
+    const overlay = document.getElementById('mobileOverlay');
+    const overlayClose = document.getElementById('overlayClose');
+    function closeMenu() {
+      hamburger.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    hamburger.addEventListener('click', () => {
+      const isOpen = overlay.classList.contains('open');
+      if (isOpen) { closeMenu(); } else {
+        hamburger.classList.add('open');
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+    overlayClose.addEventListener('click', closeMenu);
+    document.querySelectorAll('.mobile-nav-link').forEach(l => l.addEventListener('click', closeMenu));
+
+    /* ===== HERO PARALLAX (RAF-throttled) ===== */
+    let parallaxTicking = false;
+    window.addEventListener('scroll', () => {
+      if (!parallaxTicking) {
+        requestAnimationFrame(() => {
+          const y = window.scrollY;
+          if (y < window.innerHeight * 1.5) {
+            document.querySelectorAll('.hero-panel-video video').forEach(v => {
+              v.style.transform = `scale(1.05) translate3d(0, ${y * 0.12}px, 0)`;
+            });
+          }
+          parallaxTicking = false;
+        });
+        parallaxTicking = true;
+      }
+    }, { passive: true });
+
+    /* ===== HERO 3D LOGO MOUSE FOLLOW ===== */
+    const heroLogo = document.getElementById('heroLogo3d');
+    if (heroLogo && window.matchMedia('(hover: hover)').matches) {
+      const hero = document.querySelector('.hero');
+      hero.addEventListener('mousemove', e => {
+        const r = hero.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        const wrap = heroLogo.querySelector('.hero-logo-img-wrap');
+        wrap.style.transform =
+          `rotateY(${x * 20}deg) rotateX(${-y * 15}deg) scale(1.02)`;
+        wrap.style.transition = 'transform 0.1s ease-out';
+      });
+      hero.addEventListener('mouseleave', () => {
+        const wrap = heroLogo.querySelector('.hero-logo-img-wrap');
+        wrap.style.transform = '';
+        wrap.style.transition = 'transform 0.6s var(--ease-smooth)';
+      });
+    }
+
+    /* ===== SCROLL REVEAL ===== */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale')
+      .forEach(el => revealObserver.observe(el));
+
+    /* ===== 3D CARD TILT ===== */
+    document.querySelectorAll('.card-tilt').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform =
+          `perspective(700px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) scale(1.02)`;
+        card.style.transition = 'transform 0.08s ease-out';
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+        card.style.transition = 'transform 0.5s var(--ease-smooth)';
+      });
+    });
+
+    /* ===== MENU FILTER ===== */
+    const filterBtns = document.querySelectorAll('.menu-filter-btn');
+    const menuItems = document.querySelectorAll('.menu-item');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cat = btn.dataset.cat;
+        menuItems.forEach(item => {
+          const show = cat === 'all' || item.dataset.cat === cat;
+          item.style.display = show ? '' : 'none';
+          if (show) {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(12px)';
+            requestAnimationFrame(() => {
+              item.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+              item.style.opacity = '1';
+              item.style.transform = 'translateY(0)';
+            });
+          }
+        });
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    /* ===== CUSTOM CURSOR ===== */
+    const dot = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+    if (dot && ring && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      let rx = 0, ry = 0;
+      function updateCursor() {
+        ring.style.left = rx + 'px';
+        ring.style.top = ry + 'px';
+        requestAnimationFrame(updateCursor);
+      }
+      updateCursor();
+      document.addEventListener('mousemove', e => {
+        dot.style.left = e.clientX + 'px';
+        dot.style.top = e.clientY + 'px';
+        rx += (e.clientX - rx) * 0.15;
+        ry += (e.clientY - ry) * 0.15;
+      });
+      // Enlarge cursor on interactive elements
+      document.querySelectorAll('a, button, .cat-card, .campaign-card, .ig-photo-item').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          ring.style.width = '56px';
+          ring.style.height = '56px';
+          ring.style.borderColor = 'rgba(242,168,184,0.8)';
+        });
+        el.addEventListener('mouseleave', () => {
+          ring.style.width = '40px';
+          ring.style.height = '40px';
+          ring.style.borderColor = 'rgba(232,129,154,0.6)';
+        });
+      });
+    }
+
+    /* ===== ENSURE VIDEOS PLAY ===== */
+    document.querySelectorAll('video').forEach(v => {
+      v.play().catch(() => {});
+      // Re-attempt play on visibility change
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) v.play().catch(() => {});
+      });
+      // Loop fix for some browsers
+      v.addEventListener('ended', () => {
+        v.currentTime = 0;
+        v.play().catch(() => {});
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Flora et Labora</title>
+<meta name="description" content="Informativa sulla privacy di Flora et Labora. Come raccogliamo e proteggiamo i tuoi dati personali.">
+<link rel="canonical" href="https://www.floraetlabora.it/privacy-policy.html">
+<link rel="icon" type="image/png" href="Photos%20and%20Videos/logo-flora.png">
+<link rel="apple-touch-icon" href="Photos%20and%20Videos/logo-flora.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600&display=swap" rel="stylesheet">
+<style>
+/* ── Variables ── */
+:root {
+  --bone: #F7F2EA;
+  --cream: #FEFCF8;
+  --blush: #E8D5C4;
+  --sage: #7A9B6D;
+  --sage-deep: #5A7C4E;
+  --dark: #1E1E18;
+  --charcoal: #2D2820;
+  --text: #3A352E;
+  --muted: #8A7E72;
+  --font-display: 'Cormorant Garamond', 'Georgia', serif;
+  --font-body: 'DM Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ── Base ── */
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--text);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Nav ── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: var(--cream);
+  border-bottom: 1px solid var(--blush);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.nav-logo:hover { color: var(--sage-deep); }
+
+.nav-back {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition: color 0.25s ease;
+}
+.nav-back:hover { color: var(--sage-deep); }
+
+/* ── Hero ── */
+.hero {
+  padding: 5rem 2rem 3rem;
+  text-align: center;
+  background: var(--bone);
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.01em;
+}
+
+.hero .subtitle {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.hero .updated {
+  margin-top: 1.2rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ── Content ── */
+.content {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 3rem 2rem 5rem;
+}
+
+.section {
+  margin-bottom: 3rem;
+}
+
+.section h2 {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--blush);
+}
+
+.section h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin: 1.5rem 0 0.5rem;
+}
+
+.section p {
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.section ul {
+  margin: 0.5rem 0 1rem 1.4rem;
+  color: var(--text);
+}
+
+.section ul li {
+  margin-bottom: 0.45rem;
+}
+
+.section ul li::marker {
+  color: var(--sage);
+}
+
+.section a {
+  color: var(--sage-deep);
+  text-decoration: underline;
+  text-decoration-color: var(--blush);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.25s ease;
+}
+.section a:hover {
+  text-decoration-color: var(--sage-deep);
+}
+
+.highlight-box {
+  background: var(--bone);
+  border-left: 3px solid var(--sage);
+  padding: 1.2rem 1.5rem;
+  border-radius: 0 8px 8px 0;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  padding: 2.5rem 2rem;
+  background: var(--bone);
+  border-top: 1px solid var(--blush);
+  font-size: 0.82rem;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+}
+
+.footer span {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--charcoal);
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .nav { padding: 0.85rem 1.2rem; }
+  .nav-logo { font-size: 1.25rem; }
+  .nav-back { font-size: 0.78rem; }
+  .hero { padding: 3.5rem 1.5rem 2rem; }
+  .content { padding: 2rem 1.2rem 3.5rem; }
+  .section h2 { font-size: 1.4rem; }
+  .highlight-box { padding: 1rem 1.1rem; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ── Nav ── -->
+<nav class="nav">
+  <a href="flora.html" class="nav-logo">Flora et Labora</a>
+  <a href="flora.html" class="nav-back">Torna al sito / Back to site</a>
+</nav>
+
+<!-- ── Hero ── -->
+<header class="hero">
+  <h1>Informativa sulla Privacy</h1>
+  <p class="subtitle">La tua fiducia è importante per noi</p>
+  <p class="updated">Ultimo aggiornamento: 26 marzo 2026</p>
+</header>
+
+<!-- ── Content ── -->
+<main class="content">
+
+  <!-- Intro -->
+  <section class="section">
+    <p>Questa pagina descrive in modo semplice e trasparente come trattiamo i tuoi dati personali quando visiti il nostro sito web o interagisci con noi. Crediamo nella chiarezza: niente linguaggio complicato, solo informazioni oneste su come proteggiamo la tua privacy.</p>
+    <p><em>This page is written in Italian. If you need information in English, please contact us at the address below.</em></p>
+  </section>
+
+  <!-- 1. Chi siamo -->
+  <section class="section">
+    <h2>1. Chi siamo</h2>
+    <p>Il titolare del trattamento dei dati è <strong>Flora et Labora</strong>, con sede in:</p>
+    <div class="highlight-box">
+      Flora et Labora<br>
+      Alzaia Naviglio Pavese 20<br>
+      20143 Milano (MI), Italia
+    </div>
+    <p>Siamo un caffè vegano, spazio coworking e bottega botanica affacciato sul Naviglio Pavese. Trattiamo i tuoi dati con la stessa cura che dedichiamo alle nostre piante.</p>
+  </section>
+
+  <!-- 2. Dati che raccogliamo -->
+  <section class="section">
+    <h2>2. Dati che raccogliamo</h2>
+    <p>Raccogliamo solo i dati strettamente necessari per offrirti un'esperienza migliore. Ecco cosa e quando:</p>
+
+    <h3>Google Analytics 4 (GA4)</h3>
+    <p>Utilizziamo Google Analytics 4 per comprendere come i visitatori interagiscono con il nostro sito. I dati vengono raccolti <strong>solo dopo il tuo consenso esplicito</strong> tramite il banner cookie. GA4 raccoglie informazioni anonimizzate come:</p>
+    <ul>
+      <li>Pagine visitate e durata della sessione</li>
+      <li>Paese e città di provenienza (senza indirizzo IP completo)</li>
+      <li>Dispositivo e browser utilizzato</li>
+      <li>Sorgente di traffico (come sei arrivato al sito)</li>
+    </ul>
+
+    <h3>Modulo di contatto</h3>
+    <p>Se ci scrivi tramite il modulo di contatto, raccogliamo:</p>
+    <ul>
+      <li>Nome</li>
+      <li>Indirizzo email</li>
+      <li>Il messaggio che ci invii</li>
+    </ul>
+
+    <h3>Newsletter</h3>
+    <p>Se scegli di iscriverti alla nostra newsletter, raccogliamo il tuo indirizzo email. Puoi cancellarti in qualsiasi momento con un clic dal link presente in ogni email.</p>
+
+    <h3>Google Maps</h3>
+    <p>Il nostro sito include una mappa di Google Maps per aiutarti a trovarci. Quando la mappa viene caricata, Google potrebbe raccogliere dati tecnici come il tuo indirizzo IP, in conformità con la propria <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">informativa sulla privacy</a>.</p>
+  </section>
+
+  <!-- 3. Come utilizziamo i dati -->
+  <section class="section">
+    <h2>3. Come utilizziamo i dati</h2>
+    <p>I tuoi dati vengono utilizzati esclusivamente per:</p>
+    <ul>
+      <li>Rispondere alle tue richieste inviate tramite il modulo di contatto</li>
+      <li>Inviarti la newsletter (solo se ti sei iscritto volontariamente)</li>
+      <li>Migliorare il nostro sito web analizzando le statistiche di navigazione in forma aggregata</li>
+      <li>Mostrarti la nostra posizione sulla mappa</li>
+    </ul>
+    <p>Non vendiamo, non condividiamo e non cediamo i tuoi dati a terzi per scopi commerciali. Mai.</p>
+  </section>
+
+  <!-- 4. Base giuridica -->
+  <section class="section">
+    <h2>4. Base giuridica del trattamento</h2>
+    <p>Trattiamo i tuoi dati sulla base di:</p>
+    <ul>
+      <li><strong>Consenso</strong> — per i cookie analitici (GA4) e l'iscrizione alla newsletter. Puoi revocare il consenso in qualsiasi momento.</li>
+      <li><strong>Legittimo interesse</strong> — per rispondere ai messaggi che ci invii tramite il modulo di contatto.</li>
+      <li><strong>Legittimo interesse</strong> — per l'integrazione di Google Maps, necessaria a fornirti informazioni utili sulla nostra posizione.</li>
+    </ul>
+  </section>
+
+  <!-- 5. Conservazione dati -->
+  <section class="section">
+    <h2>5. Conservazione dei dati</h2>
+    <p>Non conserviamo i tuoi dati più a lungo del necessario:</p>
+    <ul>
+      <li><strong>Messaggi di contatto:</strong> conservati per un massimo di 12 mesi dalla ricezione, poi eliminati.</li>
+      <li><strong>Dati newsletter:</strong> conservati fino a quando non ti cancelli dalla lista.</li>
+      <li><strong>Dati analitici (GA4):</strong> conservati per 14 mesi, come previsto dalla configurazione predefinita di Google Analytics 4.</li>
+    </ul>
+  </section>
+
+  <!-- 6. Diritti dell'utente -->
+  <section class="section">
+    <h2>6. I tuoi diritti</h2>
+    <p>In base al Regolamento Europeo (GDPR), hai il diritto di:</p>
+    <ul>
+      <li><strong>Accesso</strong> — sapere quali dati abbiamo su di te</li>
+      <li><strong>Rettifica</strong> — correggere dati inesatti o incompleti</li>
+      <li><strong>Cancellazione</strong> — chiedere la rimozione dei tuoi dati</li>
+      <li><strong>Limitazione</strong> — limitare il trattamento in determinate circostanze</li>
+      <li><strong>Portabilità</strong> — ricevere i tuoi dati in un formato strutturato</li>
+      <li><strong>Opposizione</strong> — opporti al trattamento basato su legittimo interesse</li>
+      <li><strong>Revoca del consenso</strong> — ritirare il consenso dato in precedenza, in qualsiasi momento</li>
+    </ul>
+    <p>Per esercitare uno qualsiasi di questi diritti, scrivici all'indirizzo indicato nella sezione Contatti. Risponderemo entro 30 giorni.</p>
+    <p>Hai inoltre il diritto di presentare un reclamo all'Autorità Garante per la Protezione dei Dati Personali (<a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">www.garanteprivacy.it</a>).</p>
+  </section>
+
+  <!-- 7. Cookie -->
+  <section class="section">
+    <h2>7. Cookie</h2>
+    <p>Il nostro sito utilizza:</p>
+    <ul>
+      <li><strong>Cookie tecnici</strong> — necessari per il corretto funzionamento del sito (es. ricordare la tua preferenza sui cookie). Non richiedono consenso.</li>
+      <li><strong>Cookie analitici (GA4)</strong> — utilizzati per raccogliere statistiche anonime sulla navigazione. Vengono attivati <strong>solo dopo il tuo consenso</strong> tramite il banner che appare alla prima visita.</li>
+      <li><strong>Cookie di terze parti (Google Maps)</strong> — possono essere impostati da Google quando la mappa viene visualizzata.</li>
+    </ul>
+    <p>Puoi gestire o eliminare i cookie in qualsiasi momento dalle impostazioni del tuo browser.</p>
+  </section>
+
+  <!-- 8. Contatti -->
+  <section class="section">
+    <h2>8. Contatti</h2>
+    <p>Per qualsiasi domanda sulla privacy o per esercitare i tuoi diritti, puoi contattarci:</p>
+    <div class="highlight-box">
+      <strong>Flora et Labora</strong><br>
+      Alzaia Naviglio Pavese 20<br>
+      20143 Milano (MI), Italia<br><br>
+      Vieni a trovarci di persona o scrivici tramite il <a href="flora.html#contatti">modulo di contatto</a> sul nostro sito.
+    </div>
+    <p>Faremo del nostro meglio per risponderti nel minor tempo possibile.</p>
+  </section>
+
+</main>
+
+<!-- ── Footer ── -->
+<footer class="footer">
+  &copy; 2026 <span>Flora et Labora</span> &middot; Milano &middot; Tutti i diritti riservati
+</footer>
+
+</body>
+</html>
