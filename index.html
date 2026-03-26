@@ -944,8 +944,8 @@ body.lang-en .menu-item.unavailable .menu-item-name::after { content: ' — unav
 @media (max-width: 768px) {
   .menu-hero { height: 240px; }
   .menu-hero-content h2 { font-size: clamp(36px, 8vw, 52px); }
-  .menu-tabs-wrap { padding: 28px 16px 0; }
-  .menu-tab-btn { padding: 9px 16px; font-size: 10px; margin: 0 3px 6px; }
+  .menu-tabs-wrap { padding: 28px 8px 0; display: flex; justify-content: center; flex-wrap: nowrap; gap: 4px; }
+  .menu-tab-btn { padding: 9px 10px; font-size: 9px; margin: 0; flex-shrink: 0; white-space: nowrap; letter-spacing: 0.08em; }
   .menu-content-area { padding: 28px 20px 48px; }
   .menu-item-name { font-size: 13px; }
   .menu-item-price { font-size: 13px; }
@@ -1678,7 +1678,7 @@ body.lang-en .hours-row span[data-lang="en"] { display: inline !important; }
      ══════════════════════════════════════════════════ -->
 <section class="hero" id="hero">
   <div class="hero-panel hero-panel-video">
-    <video autoplay muted loop playsinline poster="Photos%20and%20Videos/Hero/HeroCandidate.jpg">
+    <video autoplay muted loop playsinline webkit-playsinline x5-playsinline preload="auto" poster="Photos%20and%20Videos/Hero/HeroCandidate.jpg" style="pointer-events:none;">
       <source src="Photos%20and%20Videos/Hero/Heromain.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
@@ -1692,7 +1692,7 @@ body.lang-en .hours-row span[data-lang="en"] { display: inline !important; }
     </div>
   </div>
   <div class="hero-panel hero-panel-video">
-    <video autoplay muted loop playsinline poster="Photos%20and%20Videos/Workshops/Workshop1.jpg">
+    <video autoplay muted loop playsinline webkit-playsinline x5-playsinline preload="auto" poster="Photos%20and%20Videos/Workshops/Workshop1.jpg" style="pointer-events:none;">
       <source src="Photos%20and%20Videos/Workshops/WorkshopVid1.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
@@ -1967,8 +1967,8 @@ body.lang-en .hours-row span[data-lang="en"] { display: inline !important; }
     </div>
   </div>
   <div class="workshop-video-row">
-    <div class="workshop-vid-item reveal-scale"><video autoplay muted loop playsinline preload="none"><source src="Photos%20and%20Videos/Workshops/Workshop1.mp4" type="video/mp4"></video></div>
-    <div class="workshop-vid-item reveal-scale stagger-1"><video autoplay muted loop playsinline preload="none"><source src="Photos%20and%20Videos/Workshops/WorkshopVid1.mp4" type="video/mp4"></video></div>
+    <div class="workshop-vid-item reveal-scale"><video muted loop playsinline webkit-playsinline preload="metadata" style="pointer-events:none;"><source src="Photos%20and%20Videos/Workshops/Workshop1.mp4" type="video/mp4"></video></div>
+    <div class="workshop-vid-item reveal-scale stagger-1"><video muted loop playsinline webkit-playsinline preload="metadata" style="pointer-events:none;"><source src="Photos%20and%20Videos/Workshops/WorkshopVid1.mp4" type="video/mp4"></video></div>
   </div>
 </section>
 
@@ -2428,14 +2428,94 @@ body.lang-en .hours-row span[data-lang="en"] { display: inline !important; }
     });
   });
 
+  // ═══════════════════════════════════════════════════
+  // VIDEO MANAGER — iOS Safari, Android Chrome, desktop
+  // No play button. No tap required. Loops forever.
+  // ═══════════════════════════════════════════════════
+
+  function silentPlay(v) {
+    if (!v || v.dataset.floraPlaying === '1') return;
+    v.muted = true;
+    v.loop = true;
+    v.playsInline = true;
+    var p = v.play();
+    if (p !== undefined) {
+      p.then(function() {
+        v.dataset.floraPlaying = '1';
+      }).catch(function() {});
+    }
+  }
+
+  // Step 1: Hero videos — play immediately on page load
+  var heroVids = document.querySelectorAll('.hero-panel-video video');
+  heroVids.forEach(function(v) { silentPlay(v); });
+
+  // Step 2: Retry on first user interaction (covers older iOS)
+  var hasInteracted = false;
+  function onFirstInteraction() {
+    if (hasInteracted) return;
+    hasInteracted = true;
+    document.querySelectorAll('video').forEach(function(v) { silentPlay(v); });
+  }
+  document.addEventListener('touchstart', onFirstInteraction, { once: true, passive: true });
+  document.addEventListener('click', onFirstInteraction, { once: true, passive: true });
+  document.addEventListener('scroll', onFirstInteraction, { once: true, passive: true });
+
+  // Step 3: Section videos — play when scrolled into view
+  var allSectionVideos = document.querySelectorAll('.workshop-vid-item video, .food-video-item video');
+  if ('IntersectionObserver' in window) {
+    var videoObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) { silentPlay(entry.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '100px 0px 100px 0px' });
+    allSectionVideos.forEach(function(v) { videoObserver.observe(v); });
+  } else {
+    allSectionVideos.forEach(function(v) { silentPlay(v); });
+  }
+
+  // Step 4: Loop enforcer — restart if video ever pauses/ends
+  document.querySelectorAll('video').forEach(function(v) {
+    v.addEventListener('ended', function() {
+      this.currentTime = 0;
+      silentPlay(this);
+    });
+    v.addEventListener('pause', function() {
+      if (!this.loop) return;
+      var rect = this.getBoundingClientRect();
+      var inViewport = rect.top < window.innerHeight && rect.bottom > 0;
+      if (inViewport) {
+        var self = this;
+        setTimeout(function() { silentPlay(self); }, 200);
+      }
+    });
+  });
+
+  // Step 5: CSS — hide play button and controls globally
+  var videoStyle = document.createElement('style');
+  videoStyle.textContent = [
+    'video::-webkit-media-controls { display: none !important; }',
+    'video::-webkit-media-controls-enclosure { display: none !important; }',
+    'video::-webkit-media-controls-panel { display: none !important; }',
+    'video::-webkit-media-controls-play-button { display: none !important; }',
+    'video::-webkit-media-controls-start-playback-button { display: none !important; }',
+    'video { pointer-events: none !important; }',
+    'video:focus { outline: none; }'
+  ].join('\n');
+  document.head.appendChild(videoStyle);
+
   // ─── Scroll reveals ───
   var revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
-  var observer = new IntersectionObserver(function(entries) {
+  var revealObserver = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
-      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        entry.target.querySelectorAll('video').forEach(function(v) { silentPlay(v); });
+        revealObserver.unobserve(entry.target);
+      }
     });
   }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
-  revealEls.forEach(function(el) { observer.observe(el); });
+  revealEls.forEach(function(el) { revealObserver.observe(el); });
 
   // ─── Menu tabs ───
   document.querySelectorAll('.menu-tab-btn').forEach(function(btn) {
@@ -2946,12 +3026,11 @@ body.lang-en .hours-row span[data-lang="en"] { display: inline !important; }
   });
 
   // ─── Hero parallax (desktop only) ───
-  var heroVideos = document.querySelectorAll('.hero-panel-video video');
   window.addEventListener('scroll', function() {
     if (window.innerWidth <= 768) return;
     var s = window.scrollY;
     if (s < window.innerHeight) {
-      heroVideos.forEach(function(v) {
+      heroVids.forEach(function(v) {
         v.style.transform = 'scale(1.05) translate3d(0,' + (s * 0.08) + 'px,0)';
       });
     }
